@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:36:12 by cshingai          #+#    #+#             */
-/*   Updated: 2024/01/31 20:24:35 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/02/02 19:14:09 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,25 @@ static void ft_hook(void* param)
 mlx_texture_t	*negocio_a_ser_printado(char *c)
 {
 	mlx_texture_t*	texture;
-	if (c == "1")
+
+	texture = 0;
+	if (ft_strncmp(c, "1", 1) == 0)
 		texture = mlx_load_png("./imgs/rocha.png");
-	else if (c == "2")
+	else if (ft_strncmp(c, "P", 1) == 0)
 		texture = mlx_load_png("./imgs/foguete.png");
+	else if (ft_strncmp(c, "C", 1) == 0)
+		texture = mlx_load_png("./imgs/money.png");
 	return(texture);
+}
+
+void	read_map(char map)
+{
+	char	*temp_buffer;
+	char	*memory;
+	int		fd;
+
+	memory = read(fd, temp_buffer, BUFFER_SIZE);
+	return(ft_split(memory, '\n'));
 }
 
 int32_t	main(void)
@@ -46,6 +60,8 @@ int32_t	main(void)
 	mlx_set_setting(MLX_MAXIMIZED, true);
 	mlx = mlx_init(WIDTH, HEIGHT, "so_long", true);
 	t = negocio_a_ser_printado("1");
+	
+
 	if(!t)
 		ft_error();
 	img = mlx_texture_to_image(mlx, t);

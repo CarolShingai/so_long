@@ -6,7 +6,7 @@
 #    By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 18:55:05 by cshingai          #+#    #+#              #
-#    Updated: 2024/01/31 18:56:32 by cshingai         ###   ########.fr        #
+#    Updated: 2024/02/02 17:34:45 by cshingai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,3 +47,5 @@ fclean: clean
 		@make -C $(LIBFT) fclean
 
 re: fclean all
+
+.PHONY: all, libmlx, libft, clean, fclean, re
