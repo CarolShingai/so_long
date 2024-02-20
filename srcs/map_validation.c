@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 03:35:22 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/20 13:35:37 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/02/20 19:16:13 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 
 void check_map(char **map)
 {
-  int idx;
+  int idx_str;
+  int idx_char;
 
-  idx = 0;
-  while (*map[idx] != '\0')
+  idx_str = 0;
+  idx_char = 0;
+  while (map[idx_str++])
   {
-    ft_printf("%s\n", map[idx]);
-    // if (map[idx] == 0 && map[idx + 1] != 0)
-    //   ft_printf("ERROR! empty line.");
-    // else
-    //   ft_printf("Sem erro.");
-    idx++;
+    while (map[idx_str][idx_char++])
+    {
+      if (map[idx_str][idx_char] == 'R')
+      {
+        ft_printf("achou o char certo");
+        return ;
+      }
+    }
+    ft_printf("não achou nada");
   }
 }

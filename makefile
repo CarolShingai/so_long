@@ -6,12 +6,12 @@
 #    By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 18:55:05 by cshingai          #+#    #+#              #
-#    Updated: 2024/02/19 03:25:00 by cshingai         ###   ########.fr        #
+#    Updated: 2024/02/20 16:51:51 by cshingai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME:= so_long
-FLAGS:= -Wextra -Werror -Wall -Wunreachable-code -Ofast
+FLAGS:= -Wextra -Werror -Wall -Wunreachable-code -Ofast -g3
 LIBMLX:= lib/MLX42
 LIBFT:= lib/libft
 FT_PRINTF:= lib/ft_printf
