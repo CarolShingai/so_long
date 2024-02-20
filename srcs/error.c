@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_validation.c                                   :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 03:35:22 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/20 13:35:37 by cshingai         ###   ########.fr       */
+/*   Created: 2024/02/20 03:35:17 by cshingai          #+#    #+#             */
+/*   Updated: 2024/02/20 03:38:48 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void check_map(char **map)
+void ft_error(void)
 {
-  int idx;
-
-  idx = 0;
-  while (*map[idx] != '\0')
-  {
-    ft_printf("%s\n", map[idx]);
-    // if (map[idx] == 0 && map[idx + 1] != 0)
-    //   ft_printf("ERROR! empty line.");
-    // else
-    //   ft_printf("Sem erro.");
-    idx++;
-  }
+  ft_printf("%s", mlx_strerror(mlx_errno));
+  exit(EXIT_FAILURE);
 }
