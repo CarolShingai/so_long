@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 18:27:47 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/20 18:15:40 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/02/21 13:23:17 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ char **read_line(char *map_path)
 	temp_buffer[char_read] = '\0';
 	map = ft_split(temp_buffer, '\n');
 	temp_buffer = ft_calloc(ft_strlen(temp_buffer), sizeof (char));
+	free(ft_split(temp_buffer, sizeof (char)));
 	close(fd);
 	return(map);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 03:35:22 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/20 19:16:13 by cshingai         ###   ########.fr       */
+/*   Created: 2024/02/20 12:35:22 by cshingai          #+#    #+#             */
+/*   Updated: 2024/02/21 14:10:24 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,39 @@ void check_map(char **map)
 
   idx_str = 0;
   idx_char = 0;
-  while (map[idx_str++])
+  while (map[idx_str])
   {
-    while (map[idx_str][idx_char++])
+    if (check_map_chars(*map, idx_char) == 0)
     {
-      if (map[idx_str][idx_char] == 'R')
-      {
-        ft_printf("achou o char certo");
-        return ;
-      }
+      ft_printf("ERROR! a not identify charecter is in the map.");
+      return ;
     }
-    ft_printf("não achou nada");
+    else if (ft_strlen(*map[])
+    {
+      ft_printf("ERROR! the map is not square.");
+      return ;
+    }
+    idx_str++;
   }
+  ft_printf("deu bom");
+}
+// the 0 is false, 1 is true.
+int  check_map_chars(char *map, int idx_char)
+{
+  while (map[idx_char])
+  {
+    if (map[idx_char] == '0')
+      idx_char++;
+    else if (map[idx_char] == '1')
+      idx_char++;
+    else if (map[idx_char] == 'C')
+      idx_char++;
+    else if (map[idx_char] == 'E')
+      idx_char++;
+    else if (map[idx_char] == 'P')
+      idx_char++;
+    else
+      return (0);
+  }
+  return(1);
 }

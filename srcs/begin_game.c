@@ -6,27 +6,12 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:36:12 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/20 18:54:13 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/02/20 22:57:16 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-
-// // Print the window width and height.
-// static void ft_hook(void* param)
-// {
-// 	const mlx_t* mlx = param;
-
-// 	printf("WIDTH: %d | HEIGHT: %d\n", mlx->width, mlx->height);
-// }
-// static void ft_error(void)
-// {
-// 	fprintf(stderr, "%s", mlx_strerror(mlx_errno));
-// 	exit(EXIT_FAILURE);
-// }
-//pegar uma variavél, ver se o número corresponde a 1
-// tentar fazer isso funcionar
 mlx_texture_t	*negocio_a_ser_printado(char *c)
 {
 	mlx_texture_t*	texture;
@@ -44,4 +29,5 @@ mlx_texture_t	*negocio_a_ser_printado(char *c)
 int32_t	main(int argc, char *argv[])
 {
 	primary_validation(argc, argv[1]);
+	ft_printf("%s",ft_split(argv[1], 'C'));
 }
