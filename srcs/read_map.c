@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 18:27:47 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/21 13:23:17 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/02/21 16:24:57 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,22 @@ char **read_line(char *map_path)
 	char_read = read(fd, temp_buffer, BUFFER_SIZE);
 	temp_buffer[char_read] = '\0';
 	map = ft_split(temp_buffer, '\n');
-	temp_buffer = ft_calloc(ft_strlen(temp_buffer), sizeof (char));
-	free(ft_split(temp_buffer, sizeof (char)));
+	free(temp_buffer);
+	// temp_buffer = ft_calloc(ft_strlen(temp_buffer), sizeof (char));
 	close(fd);
 	return(map);
+}
+
+void    *ft_free_split(char **split)
+{
+    int    i;
+
+    i = 0;
+    while (split[i])
+    {
+        free(split[i]);
+        i++;
+    }
+    free(split);
+    return (NULL);
 }

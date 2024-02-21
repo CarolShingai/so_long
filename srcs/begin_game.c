@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:36:12 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/20 22:57:16 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/02/21 19:16:10 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,4 @@ mlx_texture_t	*negocio_a_ser_printado(char *c)
 int32_t	main(int argc, char *argv[])
 {
 	primary_validation(argc, argv[1]);
-	ft_printf("%s",ft_split(argv[1], 'C'));
 }
