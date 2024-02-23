@@ -6,14 +6,14 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 03:35:17 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/20 03:38:48 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/02/23 18:56:35 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void ft_error(void)
+int  ft_error(char *msg)
 {
-  ft_printf("%s", mlx_strerror(mlx_errno));
+  ft_printf("%s", msg);
   exit(EXIT_FAILURE);
 }

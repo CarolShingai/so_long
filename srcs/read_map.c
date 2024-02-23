@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 18:27:47 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/23 01:05:45 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/02/23 19:50:06 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,19 @@ char **read_line(char *map_path)
 
 	temp_buffer = (char *)malloc(BUFFER_SIZE + 1);
 	if (!temp_buffer)
-		return (NULL);
+		return (ft_error(ALLOCATION), NULL);
 	fd = open(&map_path[1], O_RDONLY);
 	if (fd < 0 || read(fd, 0, 0) < 0)
-		return (NULL);
+	{
+		ft_printf("%d", fd);
+		return (ft_error(OPEN_FILE), NULL);
+	}
 	char_read = read(fd, temp_buffer, BUFFER_SIZE);
 	if (char_read == 0)
-		return (NULL);
+		return (ft_error(EMPTY_MAP), NULL);
 	temp_buffer[char_read] = '\0';
-	if (buffer_empty_line(temp_buffer, char_read) == TRUE)
-		return (NULL);
+	if (buffer_noempty_line(temp_buffer, char_read) == FALSE)
+		return (ft_error(EMPTY_LINE), NULL);
 	map = ft_split(temp_buffer, '\n');
 	free(temp_buffer);
 	close(fd);

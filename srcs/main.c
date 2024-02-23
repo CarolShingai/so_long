@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   begin_game.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:36:12 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/21 19:16:10 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/02/23 19:54:12 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,10 @@ mlx_texture_t	*negocio_a_ser_printado(char *c)
 
 int32_t	main(int argc, char *argv[])
 {
+	// char	**map;
+	// t_game	game;
+
 	primary_validation(argc, argv[1]);
+	// game.map = read_line(argv[1]);
+	//test
 }
