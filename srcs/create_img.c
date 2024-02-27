@@ -6,29 +6,23 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 17:51:01 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/18 18:25:35 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/02/27 18:16:21 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void ft_error(void)
-{
-	fprintf(stderr, "%s", mlx_strerror(mlx_errno));
-	exit(EXIT_FAILURE);
-}
-
 mlx_image_t *create_img(mlx_t*	mlx, char *img_path)
 {
   mlx_texture_t*	texture;
-  mlx_image_t*  img;
+  mlx_image_t*	img;
 
   texture = mlx_load_png(img_path);
   if(!texture)
-		ft_error();
+		ft_error(TEXTURE_ERROR);
 	img = mlx_texture_to_image(mlx, texture);
 	if(!img)
-		ft_error();
+		ft_error(IMAGE_ERROR);
   mlx_delete_texture(texture);
   return(img);
 }

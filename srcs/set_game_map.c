@@ -6,20 +6,18 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:46:04 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/23 19:41:01 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/02/27 19:02:16 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	set_game_map(char **map)
+void	set_game_map(char **map, t_map *game_map)
 {
-	t_map game_map;
-
-	game_map.height = find_height(map);
-	game_map.width = ft_strlen(*map);
-	ft_printf("altura:%d\n largura:%d\n", game_map.height, game_map.width);
-	check_square(game_map, map);
+	game_map->height = find_height(map);
+	game_map->width = ft_strlen(*map);
+	ft_printf("altura:%d\n largura:%d\n", game_map->height, game_map->width);
+	// check_square(game_map, map);
 }
 
 int	find_height(char **map)

@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 18:23:19 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/23 19:45:15 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/02/27 19:39:53 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,36 +38,46 @@
 # define ALLOCATION "ERROR! memory allocation problem."
 # define OPEN_FILE "ERROR! problem in opening the file."
 # define EMPTY_MAP "ERROR! the map is empty"
+# define TEXTURE_ERROR "ERROR! problem with the texture image"
+# define IMAGE_ERROR "ERROR! problem loading the image"
 
-typedef struct s_position
+typedef struct s_image
 {
   int x;
   int y;
-} t_position;
+  mlx_image_t *img;
+} t_image;
 
 typedef struct s_map
 {
+  char **map;
   int width;
   int height;
 } t_map;
 
 typedef struct s_game
 {
-  char **map;
+  t_map map;
+  mlx_t mlx;
 } t_game;
 
-
+//map_validation.c
 int buffer_noempty_line(char *temp_buffer, int char_read);
+int check_map_chars(char *map);
+int check_square(char **map, t_map game_map);
+void  check_map_game(char **map, t_map game_map);
+int game_border(char **map, t_map game_map);
+//create_img.c
 mlx_image_t *create_img(mlx_t *mlx, char *img_path);
-int check_map_chars(char **map);
-int check_square(t_map game_map, char **map);
-// void  check_map(char **map);
-int empty_map(char **map);
-int find_height(char **map);
-void *ft_free_split(char **split);
-void primary_validation(int argc, char *argv);
-void set_game_map(char **map);
+//read_map.c
+void  primary_validation(int argc, char *argv);
+void	start(char *argv);
 char **read_line(char *map_path);
+//set_game_map.c
+void	set_game_map(char **map, t_map *game_map);
+int find_height(char **map);
+//erroc.c
 int  ft_error(char *msg);
+// void *ft_free_split(char **split);
 
 #endif
