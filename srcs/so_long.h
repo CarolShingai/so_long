@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 18:23:19 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/27 19:39:53 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/02/27 19:47:22 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@
 # define EMPTY_MAP "ERROR! the map is empty"
 # define TEXTURE_ERROR "ERROR! problem with the texture image"
 # define IMAGE_ERROR "ERROR! problem loading the image"
+# define BORDER_WRONG "ERROR! wrong char in the border"
 
 typedef struct s_image
 {

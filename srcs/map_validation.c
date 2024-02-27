@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:35:22 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/27 19:39:37 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/02/27 20:12:23 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void  check_map_game(char **map, t_map game_map)
   }
   if (check_square(map, game_map) == FALSE)
     ft_error(NOT_SQUARE);
-
+  if (game_border(map, game_map) == FALSE)
+    ft_error(BORDER_WRONG);
 }
 
 int check_map_chars(char *map)
@@ -79,13 +80,18 @@ int game_border(char **map, t_map game_map)
 
   x = 0;
   y = 0;
-  while (map[x])
+  while (y < game_map.width)
   {
-    if (map[0][y] != 1)
-      return(FALSE);
-    if (map[game_map.width][y] != 1)
-      return(FALSE);
+    if ((map[0][y] != '1') || (map[game_map.height - 1][y] != '1'))
+      return (FALSE);
     y++;
   }
-  return(TRUE);
+  while (x < game_map.height)
+  {
+    ft_printf("%s\n", &map[x][0]);
+    if ((map[x][0] != '1') || (map[x][game_map.width - 1] != '1'))
+      return (FALSE);
+    x++;
+  }
+  return (TRUE);
 }
