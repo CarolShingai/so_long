@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:36:12 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/27 18:19:27 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/02/29 17:28:50 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 mlx_texture_t	*negocio_a_ser_printado(char *c)
 {
-	mlx_texture_t*	texture;
+	mlx_texture_t	*texture;
 
 	texture = 0;
 	if (ft_strncmp(c, "1", 1) == 0)
@@ -23,7 +23,7 @@ mlx_texture_t	*negocio_a_ser_printado(char *c)
 		texture = mlx_load_png("./imgs/cursor.png");
 	else if (ft_strncmp(c, "C", 1) == 0)
 		texture = mlx_load_png("./imgs/money.png");
-	return(texture);
+	return (texture);
 }
 
 int32_t	main(int argc, char *argv[])
