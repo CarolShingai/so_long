@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 18:27:47 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/29 19:52:12 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/01 19:06:18 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,15 @@ void	primary_validation(int argc, char *argv)
 
 void	start(char *argv)
 {
+	t_game	game;
 	t_map	game_map;
 
 	game_map.map = read_line(&argv[1]);
 	set_game_map(game_map.map, &game_map);
 	check_map_game(game_map.map, game_map);
-	free(game_map.map);
+	ft_free_split(game_map.map);
 	game_map.map = read_line(&argv[1]);
+	init_game(&game);
 }
 
 /* This fuction is used to open and read the choosed map archive.
@@ -65,17 +67,3 @@ char	**read_line(char *map_path)
 	close(fd);
 	return (map);
 }
-
-// void    *ft_free_split(char **split)
-// {
-//     int    i;
-
-//     i = 0;
-//     while (split[i])
-//     {
-//         free(split[i]);
-//         i++;
-//     }
-//     free(split);
-//     return (NULL);
-// }

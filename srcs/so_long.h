@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 18:23:19 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/29 19:54:02 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/01 19:08:47 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,20 @@
 # define EXIT "ERROR! There isn't a exit in the map."
 # define EXTRA_PERS "ERROR! There is more than one personage in the map."
 # define EXTRA_EXIT "ERROR! There is more than one exit in the map."
+# define PATH_ERROR "ERROR! It is impossible to get to the exit."
 
-typedef struct s_image
+typedef struct s_img
 {
 	int			x;
 	int			y;
-	mlx_image_t	*img;
-}	t_image;
+	mlx_image_t	img;
+}	t_img;
+
+typedef struct s_position
+{
+	int			x;
+	int			y;
+}	t_position;
 
 typedef struct s_itens
 {
@@ -63,10 +70,10 @@ typedef struct s_itens
 
 typedef struct s_map
 {
-	char	**map;
-	int		width;
-	int		height;
-	char	**personge;
+	char		**map;
+	int			width;
+	int			height;
+	t_position	personage;
 }	t_map;
 
 //t_img
@@ -74,6 +81,7 @@ typedef struct s_game
 {
 	t_map	map;
 	mlx_t	mlx;
+
 }	t_game;
 
 //map_validation.c
@@ -84,8 +92,10 @@ void	check_map_game(char **map, t_map game_map);
 int		check_border(char **map, t_map game_map);
 
 //map_validation2.c
-int		heck_num_itens(t_map game_map);
+int		check_num_itens(t_map game_map);
 int		count_itens(char **map, char item);
+int		check_flood_fill(t_map game_map);
+void	fload_fill(char **map, int x, int y);
 
 //create_img.c
 mlx_image_t	*create_img(mlx_t *mlx, char *img_path);
@@ -98,9 +108,15 @@ char	**read_line(char *map_path);
 //set_game_map.c
 int		find_height(char **map);
 void	set_game_map(char **map, t_map *game_map);
+void	set_personage(t_map *game_map);
 
 //erroc.c
 int		ft_error(char *msg);
-// void *ft_free_split(char **split);
+
+//free_split.c
+void    *ft_free_split(char **split);
+
+//init_game.c
+void	init_game(t_game *game);
 
 #endif

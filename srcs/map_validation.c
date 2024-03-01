@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:35:22 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/29 19:48:03 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/01 18:29:57 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	check_map_game(char **map, t_map game_map)
 		ft_error(EXIT);
 	else if (count_itens(game_map.map, 'E') > 1)
 		ft_error(EXTRA_EXIT);
-	else if (check_flood_fill(game_map.map))
-		ft_error(EXIT);
+	else if (check_flood_fill(game_map) == FALSE)
+		ft_error(PATH_ERROR);
 }
 
 int	check_map_chars(char *map)

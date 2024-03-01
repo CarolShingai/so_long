@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   init_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/20 03:35:17 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/01 18:40:11 by cshingai         ###   ########.fr       */
+/*   Created: 2024/03/01 19:03:41 by cshingai          #+#    #+#             */
+/*   Updated: 2024/03/01 19:11:17 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ft_error(char *msg)
+void	init_game(t_game *game)
 {
-	ft_printf("%s", msg);
-	exit(EXIT_FAILURE);
+	game->mlx = mlx_init(WIDTH, HEIGHT, "so_long", true);
 }

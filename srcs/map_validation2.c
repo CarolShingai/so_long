@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:52:51 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/29 19:53:31 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/01 18:35:32 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,39 @@ int	count_itens(char **map, char item)
 			idx_char++;
 		}
 	}
-	ft_printf("%d\n", count);
 	return (count);
 }
 
-int	check_flood_fill(char **map)
+int	check_flood_fill(t_map game_map)
 {
-	
+	int x;
+	int y;
+
+	x = 0;
+	fload_fill(game_map.map, game_map.personage.x, game_map.personage.y);
+	while (game_map.map[x])
+	{
+		y = 0;
+		ft_printf("%s\n", game_map.map[x]);
+		while (game_map.map[x][y])
+		{
+			if (ft_strchr("PCE", game_map.map[x][y]) != NULL)
+				return (FALSE);
+			y++;
+		}
+		x++;
+	}
+	return (TRUE);
 }
 
-// int fload_field(char **map)
+void	fload_fill(char **map, int x, int y)
+{
+	if (map[x][y] != '1')
+	{
+		map[x][y] = '1';
+		fload_fill(map, x, y + 1);
+		fload_fill(map, x, y - 1);
+		fload_fill(map, x + 1, y);
+		fload_fill(map, x - 1, y);
+	}
+}
