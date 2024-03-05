@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 18:23:19 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/01 19:08:47 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/05 15:56:25 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 
 # define WIDTH 1024
 # define HEIGHT 1024
+# define TILE 64
 # define TRUE 1
 # define FALSE 0
 
@@ -50,9 +51,9 @@
 
 typedef struct s_img
 {
-	int			x;
-	int			y;
-	mlx_image_t	img;
+	mlx_image_t	*floor;
+	mlx_image_t	*wall;
+	mlx_image_t	*personage;
 }	t_img;
 
 typedef struct s_position
@@ -80,7 +81,8 @@ typedef struct s_map
 typedef struct s_game
 {
 	t_map	map;
-	mlx_t	mlx;
+	mlx_t	*mlx;
+	t_img	img;
 
 }	t_game;
 
@@ -99,6 +101,7 @@ void	fload_fill(char **map, int x, int y);
 
 //create_img.c
 mlx_image_t	*create_img(mlx_t *mlx, char *img_path);
+void	insert_img(t_game game);
 
 //read_map.c
 void	primary_validation(int argc, char *argv);
