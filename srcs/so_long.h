@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 18:23:19 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/05 19:08:39 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/05 20:15:33 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct s_img
 	mlx_image_t	*wall;
 	mlx_image_t	*personage;
 	mlx_image_t	*exit;
-	mlx_image_t *collectable;
+	mlx_image_t	*collectable;
 }	t_img;
 
 typedef struct s_position
@@ -125,5 +125,8 @@ void    *ft_free_split(char **split);
 
 //init_game.c
 void	init_game(t_game *game);
+
+//key_action.c
+void	key_action(mlx_key_data_t keydata, void* param);
 
 #endif
