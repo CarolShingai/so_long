@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:46:04 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/01 17:45:56 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/05 18:30:32 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	set_game_map(char **map, t_map *game_map)
 {
 	game_map->height = find_height(map);
 	game_map->width = ft_strlen(*map);
-	ft_printf("altura:%d\nlargura:%d\n", game_map->height, game_map->width);
 	set_personage(game_map);
 }
 

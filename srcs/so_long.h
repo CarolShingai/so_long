@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 18:23:19 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/05 15:56:25 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/05 19:08:39 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ typedef struct s_img
 	mlx_image_t	*floor;
 	mlx_image_t	*wall;
 	mlx_image_t	*personage;
+	mlx_image_t	*exit;
+	mlx_image_t *collectable;
 }	t_img;
 
 typedef struct s_position
@@ -101,7 +103,9 @@ void	fload_fill(char **map, int x, int y);
 
 //create_img.c
 mlx_image_t	*create_img(mlx_t *mlx, char *img_path);
-void	insert_img(t_game game);
+void	insert_img(t_game *game);
+void	draw_map(t_game *game);
+void	draw_special_tile(t_game *game);
 
 //read_map.c
 void	primary_validation(int argc, char *argv);
