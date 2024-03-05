@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 17:51:01 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/29 16:55:39 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/05 02:03:00 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,10 @@ mlx_image_t	*create_img(mlx_t *mlx, char *img_path)
 		ft_error(IMAGE_ERROR);
 	mlx_delete_texture(texture);
 	return (img);
+}
+
+void	insert_img(t_game game)
+{
+	game.img.floor = create_img(game.mlx, "./sprites/grass_tile.png");
+	game.img.wall = create_img(game.mlx, "./sprites/block_tile.png");
 }
