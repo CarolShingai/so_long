@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:52:51 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/01 18:35:32 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/05 18:30:46 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	check_flood_fill(t_map game_map)
 	while (game_map.map[x])
 	{
 		y = 0;
-		ft_printf("%s\n", game_map.map[x]);
 		while (game_map.map[x][y])
 		{
 			if (ft_strchr("PCE", game_map.map[x][y]) != NULL)

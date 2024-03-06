@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 18:27:47 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/01 19:06:18 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/05 17:38:27 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,12 @@ void	start(char *argv)
 
 	game_map.map = read_line(&argv[1]);
 	set_game_map(game_map.map, &game_map);
+	ft_printf("Largura e altura START: %d %d\n", game.map.width, game.map.height);
 	check_map_game(game_map.map, game_map);
 	ft_free_split(game_map.map);
 	game_map.map = read_line(&argv[1]);
+	game.map = game_map;
+	ft_printf("Start\n");
 	init_game(&game);
 }
 

@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 18:23:19 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/05 01:57:50 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/05 22:21:11 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 
 # define WIDTH 1024
 # define HEIGHT 1024
+# define TILE 64
 # define TRUE 1
 # define FALSE 0
 # define TILE 64
@@ -52,8 +53,11 @@
 
 typedef struct s_img
 {
-	mlx_image_t *floor;
+	mlx_image_t	*floor;
 	mlx_image_t	*wall;
+	mlx_image_t	*personage;
+	mlx_image_t	*exit;
+	mlx_image_t	*collectable;
 }	t_img;
 
 typedef struct s_position
@@ -83,6 +87,7 @@ typedef struct s_game
 	t_map	map;
 	mlx_t	*mlx;
 	t_img	img;
+
 }	t_game;
 
 //map_validation.c
@@ -100,6 +105,9 @@ void	fload_fill(char **map, int x, int y);
 
 //create_img.c
 mlx_image_t	*create_img(mlx_t *mlx, char *img_path);
+void	insert_img(t_game *game);
+void	draw_map(t_game *game);
+void	draw_special_tile(t_game *game);
 
 //read_map.c
 void	primary_validation(int argc, char *argv);
@@ -119,5 +127,8 @@ void    *ft_free_split(char **split);
 
 //init_game.c
 void	init_game(t_game *game);
+
+//key_action.c
+void	key_action(mlx_key_data_t keydata, void* param);
 
 #endif
