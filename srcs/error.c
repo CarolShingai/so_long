@@ -6,11 +6,11 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 03:35:17 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/01 18:40:11 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/07 20:18:50 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 int	ft_error(char *msg)
 {

@@ -6,11 +6,11 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:52:51 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/05 18:30:46 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/07 20:08:07 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 int	count_itens(char **map, char item)
 {
@@ -39,6 +39,7 @@ int	check_flood_fill(t_map game_map)
 	int y;
 
 	x = 0;
+
 	fload_fill(game_map.map, game_map.personage.x, game_map.personage.y);
 	while (game_map.map[x])
 	{
