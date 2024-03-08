@@ -6,11 +6,11 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 17:36:12 by cshingai          #+#    #+#             */
-/*   Updated: 2024/02/29 17:28:50 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/07 20:07:50 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
 mlx_texture_t	*negocio_a_ser_printado(char *c)
 {

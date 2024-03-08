@@ -6,13 +6,13 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:35:22 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/01 18:29:57 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/07 20:08:01 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../includes/so_long.h"
 
-void	check_map_game(char **map, t_map game_map)
+void	check_map_game(char **map, t_game game)
 {
 	int	idx_str;
 
@@ -22,21 +22,21 @@ void	check_map_game(char **map, t_map game_map)
 		if (check_map_chars(map[idx_str]) == FALSE)
 			ft_error("ERROR! a not identify charecter is in the map.");
 	}
-	if (check_shape(map, game_map) == FALSE)
+	if (check_shape(map, game.map) == FALSE)
 		ft_error(NOT_SQUARE);
-	else if (check_border(map, game_map) == FALSE)
+	else if (check_border(map, game.map) == FALSE)
 		ft_error(BORDER_WRONG);
-	else if (count_itens(game_map.map, 'C') == 0)
+	else if (count_itens(game.map.map, 'C') == 0)
 		ft_error(COLLECTABLE);
-	else if (count_itens(game_map.map, 'P') < 1)
+	else if (count_itens(game.map.map, 'P') < 1)
 		ft_error(PERSONAGE);
-	else if (count_itens(game_map.map, 'P') > 1)
+	else if (count_itens(game.map.map, 'P') > 1)
 		ft_error(EXTRA_PERS);
-	else if (count_itens(game_map.map, 'E') < 1)
+	else if (count_itens(game.map.map, 'E') < 1)
 		ft_error(EXIT);
-	else if (count_itens(game_map.map, 'E') > 1)
+	else if (count_itens(game.map.map, 'E') > 1)
 		ft_error(EXTRA_EXIT);
-	else if (check_flood_fill(game_map) == FALSE)
+	else if (check_flood_fill(game.map) == FALSE)
 		ft_error(PATH_ERROR);
 }
 

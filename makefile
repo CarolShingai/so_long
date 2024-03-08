@@ -6,7 +6,7 @@
 #    By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 18:55:05 by cshingai          #+#    #+#              #
-#    Updated: 2024/02/20 16:51:51 by cshingai         ###   ########.fr        #
+#    Updated: 2024/03/07 20:05:26 by cshingai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,18 @@ FT_PRINTF:= lib/ft_printf
 
 HEADERS:= -I ./include -I $(LIBMLX)/include -I $(LIBFT)
 LIBS:= $(LIBMLX)/build/libmlx42.a $(LIBFT)/libft.a $(FT_PRINTF)/libftprintf.a -ldl -lglfw -pthread -lm
-SRCS:= $(wildcard srcs/*.c)
+SRCS:= ${addprefix srcs/, \
+			create_img.c \
+			error.c \
+			free_split.c \
+			init_game.c \
+			main.c \
+			map_validation2.c \
+			map_validation.c \
+			moviments.c \
+			read_map.c \
+			set_game_map.c \
+		}
 OBJ:= $(SRCS:srcs/%.c=obj/%.o)
 
 all: ${NAME}
@@ -36,7 +47,7 @@ libft:
 ft_pritf:
 		@make -C $(FT_PRINTF) all
 
-obj/%.o: srcs/%.c
+obj/%.o: srcs/%.c ./includes/so_long.h
 		@mkdir -p obj
 		@cc $(FLAGS) -c $(HEADERS) $< -o $@
 		@printf "Compiling: $<\n"

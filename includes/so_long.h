@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 18:23:19 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/05 22:21:11 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/07 23:03:49 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,26 +30,24 @@
 # define TILE 64
 # define TRUE 1
 # define FALSE 0
-# define TILE 64
 
-# define LESS_ARGS "ERROR\n You need to pass the map file as a argument."
-# define MORE_ARGS "ERROR\n You had surpassed the number of arguments."
-# define NOT_SQUARE "ERROR\n The map is not square"
-# define EMPTY_LINE "ERROR\n Unvalid map, there is a empty line."
-# define EXTENSION "ERROR\n The map must be a archive '.ber'."
-# define ALLOCATION "ERROR\n Memory allocation problem."
-# define OPEN_FILE "ERROR\n Problem in opening the file."
-# define EMPTY_MAP "ERROR\n The map is empty."
-# define TEXTURE_ERROR "ERROR\n Problem with the texture image."
-# define IMAGE_ERROR "ERROR\n Problem loading the image."
-# define BORDER_WRONG "ERROR\n Wrong char in the border."
-# define COLLECTABLE "ERROR\n There is no collectables in the map."
-# define PERSONAGE "ERROR\n There isn't a personage in the map."
-# define EXIT "ERROR\n There isn't a exit in the map."
-# define EXTRA_PERS "ERROR\n There is more than one personage in the map."
-# define EXTRA_EXIT "ERROR\n There is more than one exit in the map."
-# define PATH_ERROR "ERROR\n It is impossible to get to the exit."
-# define SOME_ERROR	"ERROE\n A not identifier error."
+# define LESS_ARGS "ERROR! You need to pass the map file as a argument."
+# define MORE_ARGS "ERROR! You had surpassed the number of arguments."
+# define NOT_SQUARE "ERROR! The map is not square"
+# define EMPTY_LINE "ERROR! Unvalid map, there is a empty line."
+# define EXTENSION "ERROR! The map must be a archive '.ber'."
+# define ALLOCATION "ERROR! Memory allocation problem."
+# define OPEN_FILE "ERROR! Problem in opening the file."
+# define EMPTY_MAP "ERROR! The map is empty."
+# define TEXTURE_ERROR "ERROR! Problem with the texture image."
+# define IMAGE_ERROR "ERROR! Problem loading the image."
+# define BORDER_WRONG "ERROR! Wrong char in the border."
+# define COLLECTABLE "ERROR! There is no collectables in the map."
+# define PERSONAGE "ERROR! There isn't a personage in the map."
+# define EXIT "ERROR! There isn't a exit in the map."
+# define EXTRA_PERS "ERROR! There is more than one personage in the map."
+# define EXTRA_EXIT "ERROR! There is more than one exit in the map."
+# define PATH_ERROR "ERROR! It is impossible to get to the exit."
 
 typedef struct s_img
 {
