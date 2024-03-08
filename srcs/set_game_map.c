@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:46:04 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/07 20:12:43 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/08 18:19:47 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	set_game_map(char **map, t_game *game)
 	game->map.height = find_height(map);
 	game->map.width = ft_strlen(*map);
 	game->map.n_colectable = count_itens(map, 'C');
-	ft_printf("collect:%d\n", game->map.n_colectable);
 	set_personage(game);
 }
 

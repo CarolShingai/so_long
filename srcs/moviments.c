@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:50:05 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/07 21:16:49 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/08 20:18:39 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,18 @@ void	personage_moviment_vertical(t_game *game, int pers_x, int pers_y, t_movimen
 
 	temp_x = pers_x;
 	temp_y = pers_y;
+
 	if ((game->map.map[pers_x + mov][pers_y] != '1') && (game->map.map[pers_x + mov][pers_y] != 'E'))
 	{
+		if(game->map.map[pers_x][pers_y + mov] == 'C')
+			get_collectables(game);
 		game->map.personage.x += mov;
-		get_collectables(game, pers_x, pers_y);
-		game->map.map[pers_x][game->map.personage.y] = 'P';
+		game->map.map[game->map.personage.x][pers_y] = 'P';
 		game->img.personage->instances[0].y += TILE * mov;
 		game->map.map[temp_x][temp_y] = '0';
 		game->n_mov += 1;
-		ft_printf("Movimentos: %d\n", game->n_mov);
 	}
+	ft_printf("Movimentos: %d\n", game->n_mov);
 }
 
 void	personage_moviment_horizontal(t_game *game, int pers_x, int pers_y, t_moviment mov)
@@ -55,30 +57,39 @@ void	personage_moviment_horizontal(t_game *game, int pers_x, int pers_y, t_movim
 
 	temp_x = pers_x;
 	temp_y = pers_y;
+
 	if ((game->map.map[pers_x][pers_y + mov] != '1') && (game->map.map[pers_x][pers_y + mov] != 'E'))
 	{
+		if(game->map.map[pers_x][pers_y + mov] == 'C')
+			get_collectables(game);
 		game->map.personage.y += mov;
-		get_collectables(game, pers_x, pers_y);
 		game->map.map[pers_x][game->map.personage.y] = 'P';
 		game->img.personage->instances[0].x += TILE * mov;
 		game->map.map[temp_x][temp_y] = '0';
 		game->n_mov += 1;
-		ft_printf("Movimentos: %d\n", game->n_mov);
 	}
+	ft_printf("Movimentos: %d\n", game->n_mov);
 }
 
-void	get_collectables(t_game *game, int pers_x, int pers_y)
+void	get_collectables(t_game *game)
 {
-	ft_printf("n_imgs:%d", game->img.collectable->count);
-	// size_t	i;
+	size_t	i;
+	// int	box_collected = game->map.n_colectable;
+	int32_t n;
 
-	// i = 0;
-	if (game->map.map[pers_x][pers_y] == 'C')
+	i = 0;
+	n = game->map.personage.x;
+	while (i < game->img.collectable->count)
 	{
-		// while (i < game->img.collectable->count)
-		// // {
-		// // 	game->map.map[pers_x][pers_y] = game->img.collectable->instances[i] = 0;
-		// // }
-		ft_printf("Você coletou a vongole box!\n");
+		if (((game->img.collectable->instances[i].x + 10) / TILE && game->map.personage.y + 1)
+			&& ((game->img.collectable->instances[i].y + 10) && game->map.personage.x + 1)
+			&& (game->img.collectable->instances[i].enabled))
+		{
+			game->img.collectable->instances[i].enabled = false;
+			game->player_collectables++;
+			game->map.n_colectable--;
+			ft_printf("Box Coletadas:%d\n", game->player_collectables);
+		}
+		i++;
 	}
 }

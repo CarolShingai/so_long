@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 18:23:19 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/07 23:03:49 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/08 19:57:52 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,17 @@ typedef struct s_img
 
 typedef struct s_position
 {
-	int			x;
-	int			y;
+	int32_t			x;
+	int32_t			y;
 }	t_position;
+
+typedef enum e_moviment
+{
+	right = 1,
+	left = -1,
+	up = -1,
+	down = 1,
+}	t_moviment;
 
 typedef struct s_itens
 {
@@ -76,8 +84,9 @@ typedef struct s_map
 	char		**map;
 	int			width;
 	int			height;
+	int			n_colectable;
 	t_position	personage;
-}	t_map;
+}				t_map;
 
 //t_img
 typedef struct s_game
@@ -85,6 +94,8 @@ typedef struct s_game
 	t_map	map;
 	mlx_t	*mlx;
 	t_img	img;
+	int		n_mov;
+	int		player_collectables;
 
 }	t_game;
 
@@ -92,7 +103,7 @@ typedef struct s_game
 int		buffer_noempty_line(char *temp_buffer, int char_read);
 int		check_map_chars(char *map);
 int		check_shape(char **map, t_map game_map);
-void	check_map_game(char **map, t_map game_map);
+void	check_map_game(char **map, t_game game_map);
 int		check_border(char **map, t_map game_map);
 
 //map_validation2.c
@@ -114,8 +125,8 @@ char	**read_line(char *map_path);
 
 //set_game_map.c
 int		find_height(char **map);
-void	set_game_map(char **map, t_map *game_map);
-void	set_personage(t_map *game_map);
+void	set_game_map(char **map, t_game *game);
+void	set_personage(t_game *game);
 
 //erroc.c
 int		ft_error(char *msg);
@@ -126,7 +137,10 @@ void    *ft_free_split(char **split);
 //init_game.c
 void	init_game(t_game *game);
 
-//key_action.c
+//moviment.c
 void	key_action(mlx_key_data_t keydata, void* param);
+void	personage_moviment_vertical(t_game *game, int pers_x, int pers_y, t_moviment mov);
+void	personage_moviment_horizontal(t_game *game, int pers_x, int pers_y, t_moviment mov);
+void	get_collectables(t_game *game);
 
 #endif

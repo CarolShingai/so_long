@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 17:51:01 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/07 23:00:31 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/08 19:26:23 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	insert_img(t_game *game)
 	game->img.floor = create_img(game->mlx, "./sprites/grass_tile.png");
 	game->img.wall = create_img(game->mlx, "./sprites/tree_tile.png");
 	mlx_resize_image(game->img.wall, TILE, TILE);
-	game->img.personage = create_img(game->mlx, "./sprites/reborn_R.png");
-	mlx_resize_image(game->img.personage, TILE, TILE);
+	game->img.personage = create_img(game->mlx, "./sprites/reborn_1.png");
+	// mlx_resize_image(game->img.personage, TILE, TILE);
 	game->img.exit = create_img(game->mlx, "./sprites/BrickHouse.png");
 	game->img.collectable = create_img(game->mlx, "./sprites/collectable.png");
 }
