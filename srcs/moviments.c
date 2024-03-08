@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:50:05 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/07 21:01:59 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/07 21:16:49 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,15 @@ void	personage_moviment_horizontal(t_game *game, int pers_x, int pers_y, t_movim
 void	get_collectables(t_game *game, int pers_x, int pers_y)
 {
 	ft_printf("n_imgs:%d", game->img.collectable->count);
-	size_t	i;
+	// size_t	i;
 
-	i = 0;
+	// i = 0;
 	if (game->map.map[pers_x][pers_y] == 'C')
 	{
-		while (i < game->img.collectable->count)
-		// {
-		// 	game->map.map[pers_x][pers_y] = game->img.collectable->instances[i] = 0;
-		// }
-		// ft_printf("Você coletou a vongole box!\n");
+		// while (i < game->img.collectable->count)
+		// // {
+		// // 	game->map.map[pers_x][pers_y] = game->img.collectable->instances[i] = 0;
+		// // }
+		ft_printf("Você coletou a vongole box!\n");
 	}
 }
