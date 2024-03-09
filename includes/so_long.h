@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 18:23:19 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/08 19:57:52 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/09 13:23:52 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,6 @@ void	init_game(t_game *game);
 void	key_action(mlx_key_data_t keydata, void* param);
 void	personage_moviment_vertical(t_game *game, int pers_x, int pers_y, t_moviment mov);
 void	personage_moviment_horizontal(t_game *game, int pers_x, int pers_y, t_moviment mov);
-void	get_collectables(t_game *game);
+void	get_collectables(t_game *game, int pers_x, int pers_y);
 
 #endif
