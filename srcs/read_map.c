@@ -6,26 +6,29 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 18:27:47 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/07 20:14:16 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/10 19:17:43 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	primary_validation(int argc, char *argv)
+void primary_validation(int argc, char *argv)
 {
+	int size;
+
+	size = ft_strlen(&argv[1]);
 	if (argc < 2)
 		ft_error("ERROR! you need to pass the map file as a argument.");
 	else if (argc > 2)
 		ft_error("ERROR! you had surpassed the number of arguments.");
-	else if (ft_strnstr(&argv[1], ".ber", ft_strlen(&argv[1])) == 0)
+	else if (!((argv[size] == 'r') && (argv[size - 1] == 'e') && (argv[size - 2] == 'b')
+		&& (argv[size - 3] == '.')))
 		ft_error("ERROR! the map must be a archive .ber");
 }
 
-void	start(char *argv)
+void start(char *argv)
 {
-	t_game	game;
-	// t_map	game_map;
+	t_game game;
 
 	game.map.map = read_line(&argv[1]);
 	set_game_map(game.map.map, &game);
@@ -43,12 +46,12 @@ char_read: get the numb of chars in fuction read.
 map: return the result of ft_split.
 */
 
-char	**read_line(char *map_path)
+char **read_line(char *map_path)
 {
-	int		fd;
-	char	*temp_buffer;
-	char	**map;
-	int		char_read;
+	int fd;
+	char *temp_buffer;
+	char **map;
+	int char_read;
 
 	temp_buffer = (char *)malloc(BUFFER_SIZE + 1);
 	if (!temp_buffer)

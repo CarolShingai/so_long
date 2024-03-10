@@ -6,7 +6,7 @@
 #    By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 18:55:05 by cshingai          #+#    #+#              #
-#    Updated: 2024/03/07 20:05:26 by cshingai         ###   ########.fr        #
+#    Updated: 2024/03/10 18:48:04 by cshingai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ LIBS:= $(LIBMLX)/build/libmlx42.a $(LIBFT)/libft.a $(FT_PRINTF)/libftprintf.a -l
 SRCS:= ${addprefix srcs/, \
 			create_img.c \
 			error.c \
-			free_split.c \
 			init_game.c \
 			main.c \
 			map_validation2.c \
