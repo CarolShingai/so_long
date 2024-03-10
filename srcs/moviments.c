@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:50:05 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/10 18:44:18 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/10 20:37:29 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void personage_moviment_vertical(t_game *game, int pers_x, int pers_y, t_movimen
 		else
 			game->map.map[temp_x][temp_y] = '0';
 	}
+	finish_game(game);
 	ft_printf("Movimentos: %d\n", game->count_mov);
 }
 
@@ -72,6 +73,7 @@ void personage_moviment_horizontal(t_game *game, int pers_x, int pers_y, t_movim
 		else
 			game->map.map[temp_x][temp_y] = '0';
 	}
+	finish_game(game);
 	ft_printf("Movimentos: %d\n", game->count_mov);
 }
 
@@ -82,13 +84,13 @@ void get_collectables(t_game *game, int pers_x, int pers_y)
 	i = 0;
 	while (i < game->img.collectable->count)
 	{
-		ft_printf("img:%d pers:%d\n", (game->img.collectable->instances[i].y + 10) / TILE, pers_x);
 		if ((((game->img.collectable->instances[i].x + 10) / TILE) == pers_y) && (((game->img.collectable->instances[i].y + 10) / TILE) == pers_x) && (game->img.collectable->instances[i].enabled))
 		{
 			game->img.collectable->instances[i].enabled = false;
 			game->player_collectables++;
 			game->map.box_to_collect--;
 			ft_printf("Box Coletadas:%d\n", game->player_collectables);
+			enable_exit(game);
 		}
 		i++;
 	}

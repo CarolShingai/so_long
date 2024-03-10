@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 17:51:01 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/08 19:26:23 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/10 19:37:56 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,10 @@ void	draw_special_tile(t_game *game)
 		while (game->map.map[x][y])
 		{
 			if (game->map.map[x][y] == 'E')
+			{
 				mlx_image_to_window(game->mlx, game->img.exit, y * TILE, x * TILE);
+				game->img.exit->instances[0].enabled = false;
+			}
 			else if (game->map.map[x][y] == 'C')
 				mlx_image_to_window(game->mlx, game->img.collectable, y * TILE, x * TILE);
 			else if (game->map.map[x][y] == 'P')

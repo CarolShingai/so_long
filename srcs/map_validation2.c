@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:52:51 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/07 20:08:07 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/10 20:01:15 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	count_itens(char **map, char item)
 	return (count);
 }
 
-int	check_flood_fill(t_map game_map)
+t_bool	check_flood_fill(t_map game_map)
 {
 	int x;
 	int y;

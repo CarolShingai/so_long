@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 18:23:19 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/10 19:08:23 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/10 20:28:38 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@
 #define WIDTH 1024
 #define HEIGHT 1024
 #define TILE 64
-#define TRUE 1
-#define FALSE 0
 
 #define LESS_ARGS "ERROR! You need to pass the map file as a argument."
 #define MORE_ARGS "ERROR! You had surpassed the number of arguments."
@@ -49,6 +47,12 @@
 #define EXTRA_EXIT "ERROR! There is more than one exit in the map."
 #define PATH_ERROR "ERROR! It is impossible to get to the exit."
 
+typedef enum e_bool
+{
+	TRUE = 1,
+	FALSE = 0
+}	t_bool;
+
 typedef struct s_img
 {
 	mlx_image_t *floor;
@@ -56,13 +60,13 @@ typedef struct s_img
 	mlx_image_t *personage;
 	mlx_image_t *exit;
 	mlx_image_t *collectable;
-} t_img;
+}	t_img;
 
 typedef struct s_position
 {
 	int32_t x;
 	int32_t y;
-} t_position;
+}	t_position;
 
 typedef enum e_moviment
 {
@@ -95,22 +99,23 @@ typedef struct s_game
 	t_map map;
 	mlx_t *mlx;
 	t_img img;
+	t_bool exit_state;
 	int count_mov;
 	int player_collectables;
-
+	
 } t_game;
 
 // map_validation.c
-int buffer_noempty_line(char *temp_buffer, int char_read);
-int check_map_chars(char *map);
-int check_shape(char **map, t_map game_map);
+t_bool buffer_noempty_line(char *temp_buffer, int char_read);
+t_bool check_map_chars(char *map);
+t_bool check_shape(char **map, t_map game_map);
 void check_map_game(char **map, t_game game_map);
-int check_border(char **map, t_map game_map);
+t_bool check_border(char **map, t_map game_map);
 
 // map_validation2.c
-int check_num_itens(t_map game_map);
+// int check_num_itens(t_map game_map);
 int count_itens(char **map, char item);
-int check_flood_fill(t_map game_map);
+t_bool check_flood_fill(t_map game_map);
 void fload_fill(char **map, int x, int y);
 
 // create_img.c
@@ -142,5 +147,9 @@ void key_action(mlx_key_data_t keydata, void *param);
 void personage_moviment_vertical(t_game *game, int pers_x, int pers_y, t_moviment mov);
 void personage_moviment_horizontal(t_game *game, int pers_x, int pers_y, t_moviment mov);
 void get_collectables(t_game *game, int pers_x, int pers_y);
+
+// finish.c
+void    enable_exit(t_game *game);
+void    finish_game(t_game *game);
 
 #endif

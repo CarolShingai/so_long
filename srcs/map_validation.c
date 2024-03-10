@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:35:22 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/07 20:08:01 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/10 20:00:13 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	check_map_game(char **map, t_game game)
 		ft_error(PATH_ERROR);
 }
 
-int	check_map_chars(char *map)
+t_bool	check_map_chars(char *map)
 {
 	int	idx_char;
 
@@ -53,7 +53,7 @@ int	check_map_chars(char *map)
 	return (TRUE);
 }
 
-int	buffer_noempty_line(char *temp_buffer, int char_read)
+t_bool	buffer_noempty_line(char *temp_buffer, int char_read)
 {
 	int	idx;
 
@@ -70,7 +70,7 @@ int	buffer_noempty_line(char *temp_buffer, int char_read)
 	return (TRUE);
 }
 
-int	check_shape(char **map, t_map game_map)
+t_bool	check_shape(char **map, t_map game_map)
 {
 	int	idx_str;
 
@@ -84,7 +84,7 @@ int	check_shape(char **map, t_map game_map)
 	return (TRUE);
 }
 
-int	check_border(char **map, t_map game_map)
+t_bool	check_border(char **map, t_map game_map)
 {
 	int	y;
 	int	x;
@@ -99,7 +99,6 @@ int	check_border(char **map, t_map game_map)
 	}
 	while (x < game_map.height)
 	{
-		// ft_printf("%s\n", &map[x][0]);
 		if ((map[x][0] != '1') || (map[x][game_map.width - 1] != '1'))
 			return (FALSE);
 		x++;

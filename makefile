@@ -6,7 +6,7 @@
 #    By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 18:55:05 by cshingai          #+#    #+#              #
-#    Updated: 2024/03/10 18:48:04 by cshingai         ###   ########.fr        #
+#    Updated: 2024/03/10 20:29:13 by cshingai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRCS:= ${addprefix srcs/, \
 			moviments.c \
 			read_map.c \
 			set_game_map.c \
+			finish.c \
 		}
 OBJ:= $(SRCS:srcs/%.c=obj/%.o)
 
