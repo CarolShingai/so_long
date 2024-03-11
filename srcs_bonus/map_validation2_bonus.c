@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_validation2.c                                  :+:      :+:    :+:   */
+/*   map_validation2_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:52:51 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/10 22:40:22 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/10 22:41:26 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 int	count_itens(char **map, char item)
 {

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   moviments.c                                        :+:      :+:    :+:   */
+/*   moviments_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:50:05 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/11 01:07:04 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/11 01:32:55 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 void key_action(mlx_key_data_t keydata, void *param)
 {
@@ -40,10 +40,9 @@ void personage_moviment_vertical(t_game *game, int pers_x, int pers_y, t_movimen
 	{
 		if (game->map.map[pers_x + mov][pers_y] == 'C')
 			get_collectables(game, pers_x + mov, pers_y);
+		enemy_shock(game, pers_x, pers_y);
 		game->map.personage.x += mov;
-		game->map.map[game->map.personage.x][pers_y] = 'P';
 		game->img.personage->instances[0].y += TILE * mov;
-		game->count_mov += 1;
 		if ((temp_x == game->map.exit.x) && (temp_y == game->map.exit.y))
 			game->map.map[game->map.exit.x][game->map.exit.y] = 'E';
 		else
@@ -64,10 +63,9 @@ void personage_moviment_horizontal(t_game *game, int pers_x, int pers_y, t_movim
 	{
 		if (game->map.map[pers_x][pers_y + mov] == 'C')
 			get_collectables(game, pers_x, pers_y + mov);
+		enemy_shock(game, pers_x, pers_y);
 		game->map.personage.y += mov;
 		game->img.personage->instances[0].x += TILE * mov;
-		game->count_mov += 1;
-		game->map.map[pers_x][game->map.personage.y] = 'P';
 		if ((temp_x == game->map.exit.x) && (temp_y == game->map.exit.y))
 			game->map.map[game->map.exit.x][game->map.exit.y] = 'E';
 		else
@@ -75,6 +73,18 @@ void personage_moviment_horizontal(t_game *game, int pers_x, int pers_y, t_movim
 	}
 	finish_game(game);
 	ft_printf("Movimentos: %d\n", game->count_mov);
+}
+
+void enemy_shock(t_game *game, int pers_x, int pers_y)
+{
+	if (game->map.map[game->map.personage.x][game->map.personage.y] == 'V')
+	{
+		game->map.map[pers_x][pers_y] = 'V';
+		finish_game(game);
+	}
+	else
+		game->map.map[pers_x][game->map.personage.y] = 'P';
+	game->count_mov += 1;
 }
 
 void get_collectables(t_game *game, int pers_x, int pers_y)

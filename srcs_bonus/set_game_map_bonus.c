@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_game_map.c                                     :+:      :+:    :+:   */
+/*   set_game_map_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:46:04 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/10 22:40:34 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/10 22:41:38 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 void set_game_map(char **map, t_game *game)
 {

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_validation.c                                   :+:      :+:    :+:   */
+/*   map_validation_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:35:22 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/10 22:40:18 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/10 22:41:17 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "../includes/so_long_bonus.h"
 
 void	check_map_game(char **map, t_game game)
 {
@@ -47,7 +47,7 @@ t_bool	check_map_chars(char *map)
 	idx_char = -1;
 	while (map[++idx_char] && idx_char >= 0)
 	{
-		if (ft_strchr("01CEP", map[idx_char]) == NULL)
+		if (ft_strchr("01CEPV", map[idx_char]) == NULL)
 			return (FALSE);
 	}
 	return (TRUE);

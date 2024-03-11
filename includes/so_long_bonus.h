@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/31 18:23:19 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/11 01:07:04 by cshingai         ###   ########.fr       */
+/*   Created: 2024/03/10 21:03:54 by cshingai          #+#    #+#             */
+/*   Updated: 2024/03/11 01:32:55 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_img
 	mlx_image_t *personage;
 	mlx_image_t *exit;
 	mlx_image_t *collectable;
+	mlx_image_t *enemy;
 } t_img;
 
 typedef struct s_position
@@ -146,6 +147,7 @@ void init_game(t_game *game);
 void key_action(mlx_key_data_t keydata, void *param);
 void personage_moviment_vertical(t_game *game, int pers_x, int pers_y, t_moviment mov);
 void personage_moviment_horizontal(t_game *game, int pers_x, int pers_y, t_moviment mov);
+void enemy_shock(t_game *game, int pers_x, int pers_y);
 void get_collectables(t_game *game, int pers_x, int pers_y);
 
 // finish.c
