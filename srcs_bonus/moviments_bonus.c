@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:50:05 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/11 01:32:55 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/11 03:34:25 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void personage_moviment_vertical(t_game *game, int pers_x, int pers_y, t_movimen
 			game->map.map[temp_x][temp_y] = '0';
 	}
 	finish_game(game);
+	game->time = mlx_get_time();
 	ft_printf("Movimentos: %d\n", game->count_mov);
 }
 

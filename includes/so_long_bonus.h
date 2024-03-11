@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 21:03:54 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/11 01:32:55 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/11 03:30:28 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ typedef struct s_game
 	t_bool exit_state;
 	int count_mov;
 	int player_collectables;
-
+	double time;
 } t_game;
 
 // map_validation.c
