@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 21:03:54 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/11 17:12:16 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:29:23 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ typedef struct s_map
 	int			box_to_collect;
 	t_position	personage;
 	t_position	exit;
+	t_position	enemy;
 }				t_map;
 
 // t_img
@@ -145,6 +146,10 @@ void		personage_moviment_horizontal(t_game *game, int pers_x,
 				int pers_y, t_moviment mov);
 void		enemy_shock(t_game *game, int pers_x, int pers_y);
 void		get_collectables(t_game *game, int pers_x, int pers_y);
+
+// enemy_moviment.c
+t_bool	enemy_exist(t_game *game);
+void	enemy_moviment(t_game *game);
 
 // finish.c
 void		enable_exit(t_game *game);

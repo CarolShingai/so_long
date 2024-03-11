@@ -6,7 +6,7 @@
 #    By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 18:55:05 by cshingai          #+#    #+#              #
-#    Updated: 2024/03/10 21:33:01 by cshingai         ###   ########.fr        #
+#    Updated: 2024/03/11 19:14:42 by cshingai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,8 +44,9 @@ SRCS_BONUS:= ${addprefix srcs_bonus/, \
 			read_map_bonus.c \
 			set_game_map_bonus.c \
 			finish_bonus.c \
-		}	
-		
+			enemy_moviment_bonus.c \
+		}
+
 OBJ:= $(SRCS:srcs/%.c=obj/%.o)
 OBJ_BONUS = $(SRCS_BONUS:srcs_bonus/%.c=obj_bonus/%.o)
 
