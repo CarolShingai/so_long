@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 03:35:17 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/10 22:40:01 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/11 17:01:02 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ int	ft_error(char *msg)
 	exit(EXIT_FAILURE);
 }
 
-void    *ft_free_split(char **split)
+void	*ft_free_split(char **split)
 {
-    int    i;
+	int	i;
 
-    i = 0;
-    while (split[i])
-    {
-        free(split[i]);
-        i++;
-    }
-    free(split);
-    return (NULL);
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+	return (NULL);
 }

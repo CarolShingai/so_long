@@ -6,13 +6,13 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:46:04 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/10 22:40:34 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/11 17:21:36 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void set_game_map(char **map, t_game *game)
+void	set_game_map(char **map, t_game *game)
 {
 	game->map.height = find_height(map);
 	game->map.width = ft_strlen(*map);
@@ -21,10 +21,10 @@ void set_game_map(char **map, t_game *game)
 	set_exit(game);
 }
 
-int find_height(char **map)
+int	find_height(char **map)
 {
-	int count;
-	int idx_str;
+	int	count;
+	int	idx_str;
 
 	count = 0;
 	idx_str = -1;
@@ -33,10 +33,10 @@ int find_height(char **map)
 	return (count);
 }
 
-void set_personage(t_game *game)
+void	set_personage(t_game *game)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = 0;
 	while (game->map.map[x])
@@ -55,10 +55,10 @@ void set_personage(t_game *game)
 	}
 }
 
-void set_exit(t_game *game)
+void	set_exit(t_game *game)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = 0;
 	while (game->map.map[x])
