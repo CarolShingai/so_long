@@ -6,7 +6,7 @@
 #    By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 18:55:05 by cshingai          #+#    #+#              #
-#    Updated: 2024/03/11 19:14:42 by cshingai         ###   ########.fr        #
+#    Updated: 2024/03/14 19:19:34 by cshingai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ SRCS:= ${addprefix srcs/, \
 
 SRCS_BONUS:= ${addprefix srcs_bonus/, \
 			create_img_bonus.c \
+			create_img_bonus2.c \
 			error_bonus.c \
 			init_game_bonus.c \
 			main_bonus.c \

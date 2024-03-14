@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 19:03:41 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/13 20:45:00 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/14 19:17:28 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,5 @@ void	setting_window(t_game *game)
 	draw_map(game);
 	draw_text_space(game);
 	draw_special_tile(game);
+	draw_personage(game);
 }

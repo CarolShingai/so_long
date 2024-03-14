@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 17:51:01 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/13 20:55:32 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/14 19:20:00 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ void	insert_img(t_game *game)
 	game->img.exit = create_img(game->mlx, "./sprites/BrickHouse.png");
 	game->img.collectable = create_img(game->mlx, "./sprites/collectable.png");
 	game->img.enemy = create_img(game->mlx, "./sprites/mafia_L2.png");
-	game->img.text_space = create_img(game->mlx, "./sprites/text.png");
 	mlx_resize_image(game->img.enemy, TILE, TILE);
+	game->img.scroll = create_img(game->mlx, "./sprites/scroll.png");
+	mlx_resize_image(game->img.scroll, TILE * 1.6, (TILE / 2) + 20);
 }
 
 void	draw_map(t_game *game)
@@ -83,9 +84,6 @@ void	draw_special_tile(t_game *game)
 			else if (game->map.map[x][y] == 'C')
 				mlx_image_to_window(game->mlx, game->img.collectable,
 					y * TILE, x * TILE);
-			else if (game->map.map[x][y] == 'P')
-				mlx_image_to_window(game->mlx, game->img.personage,
-					y * TILE, x * TILE);
 			else if (game->map.map[x][y] == 'V')
 				mlx_image_to_window(game->mlx, game->img.enemy,
 					y * TILE, x * TILE);
@@ -96,13 +94,12 @@ void	draw_special_tile(t_game *game)
 
 void	draw_text_space(t_game *game)
 {
-	char	*str;
+	char	*src;
 
-	str = "Movimentos: ";
-	// mlx_image_to_window(game->mlx, game->img.text_space, TILE, TILE);
 	mlx_delete_image(game->mlx, game->img.text);
-	game->img.text = mlx_put_string(game->mlx, ft_itoa(game->count_mov), 3 * 64, 0);
-	mlx_put_string(game->mlx, str, 64, 0);
-	// mlx_put_string(game->mlx, ft_itoa(game->count_mov), 3 * 64, 0);
-	mlx_image_to_window(game->mlx, game->img.text, TILE, 0);
+	src = ft_itoa(game->count_mov);
+	mlx_image_to_window(game->mlx, game->img.scroll, TILE, 0);
+	game->img.text = mlx_put_string(game->mlx, src, 2 * 64 - 12, 14);
+	// mlx_put_string(game->mlx, src, 2 * TILE, 14);
+	// mlx_image_to_window(game->mlx, game->img.text, TILE, 0);
 }
