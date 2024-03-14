@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:50:05 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/11 17:18:50 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/14 19:57:00 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	personage_moviment_vertical(t_game *game,
 			get_collectables(game, pers_x + mov, pers_y);
 		game->map.personage.x += mov;
 		game->map.map[game->map.personage.x][pers_y] = 'P';
-		game->img.personage->instances[0].y += TILE * mov;
+		game->img.personage_r->instances[0].y += TILE * mov;
 		game->count_mov += 1;
 		if ((temp_x == game->map.exit.x) && (temp_y == game->map.exit.y))
 			game->map.map[game->map.exit.x][game->map.exit.y] = 'E';
@@ -75,7 +75,7 @@ void	personage_moviment_horizontal(t_game *game, int pers_x,
 		if (game->map.map[pers_x][pers_y + mov] == 'C')
 			get_collectables(game, pers_x, pers_y + mov);
 		game->map.personage.y += mov;
-		game->img.personage->instances[0].x += TILE * mov;
+		game->img.personage_r->instances[0].x += TILE * mov;
 		game->count_mov += 1;
 		game->map.map[pers_x][game->map.personage.y] = 'P';
 		if ((temp_x == game->map.exit.x) && (temp_y == game->map.exit.y))

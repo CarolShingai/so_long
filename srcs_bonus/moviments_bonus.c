@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:50:05 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/14 19:03:01 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/14 20:15:37 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void	personage_moviment_vertical(t_game *game, int pers_x,
 			get_collectables(game, pers_x + mov, pers_y);
 		enemy_shock(game, pers_x, pers_y);
 		game->map.personage.x += mov;
-		game->img.personage->instances[0].y += TILE * mov;
+		game->img.personage_r->instances[0].y += TILE * mov;
+		game->img.personage_l->instances[0].y += TILE * mov;
 		if ((temp_x == game->map.exit.x) && (temp_y == game->map.exit.y))
 			game->map.map[game->map.exit.x][game->map.exit.y] = 'E';
 		else
@@ -70,13 +71,15 @@ void	personage_moviment_horizontal(t_game *game, int pers_x,
 
 	temp_x = pers_x;
 	temp_y = pers_y;
+	draw_personage_dir(game, mov);
 	if ((game->map.map[pers_x][pers_y + mov] != '1'))
 	{
 		if (game->map.map[pers_x][pers_y + mov] == 'C')
 			get_collectables(game, pers_x, pers_y + mov);
 		enemy_shock(game, pers_x, pers_y);
 		game->map.personage.y += mov;
-		game->img.personage->instances[0].x += TILE * mov;
+		game->img.personage_r->instances[0].x += TILE * mov;
+		game->img.personage_l->instances[0].x += TILE * mov;
 		if ((temp_x == game->map.exit.x) && (temp_y == game->map.exit.y))
 			game->map.map[game->map.exit.x][game->map.exit.y] = 'E';
 		else

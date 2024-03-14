@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 18:23:19 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/11 17:05:42 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/14 19:57:00 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_img
 {
 	mlx_image_t	*floor;
 	mlx_image_t	*wall;
-	mlx_image_t	*personage;
+	mlx_image_t	*personage_r;
 	mlx_image_t	*exit;
 	mlx_image_t	*collectable;
 }	t_img;

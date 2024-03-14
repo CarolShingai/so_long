@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 17:51:01 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/14 19:20:00 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/14 20:18:11 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,14 @@ void	insert_img(t_game *game)
 {
 	game->img.floor = create_img(game->mlx, "./sprites/grass_tile.png");
 	game->img.wall = create_img(game->mlx, "./sprites/block_tile.png");
-	game->img.personage = create_img(game->mlx, "./sprites/reborn_1.png");
+	game->img.personage_r = create_img(game->mlx, "./sprites/reborn_1.png");
+	game->img.personage_l = create_img(game->mlx, "./sprites/reborn_L1.png");
 	game->img.exit = create_img(game->mlx, "./sprites/BrickHouse.png");
 	game->img.collectable = create_img(game->mlx, "./sprites/collectable.png");
 	game->img.enemy = create_img(game->mlx, "./sprites/mafia_L2.png");
 	mlx_resize_image(game->img.enemy, TILE, TILE);
 	game->img.scroll = create_img(game->mlx, "./sprites/scroll.png");
-	mlx_resize_image(game->img.scroll, TILE * 1.6, (TILE / 2) + 20);
+	mlx_resize_image(game->img.scroll, TILE * 1.5, (TILE / 2) + 20);
 }
 
 void	draw_map(t_game *game)

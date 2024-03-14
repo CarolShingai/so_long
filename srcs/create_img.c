@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 17:51:01 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/11 16:58:42 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/14 19:57:00 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	insert_img(t_game *game)
 {
 	game->img.floor = create_img(game->mlx, "./sprites/grass_tile.png");
 	game->img.wall = create_img(game->mlx, "./sprites/block_tile.png");
-	game->img.personage = create_img(game->mlx, "./sprites/reborn_1.png");
+	game->img.personage_r = create_img(game->mlx, "./sprites/reborn_1.png");
 	// mlx_resize_image(game->img.personage, TILE, TILE);
 	game->img.exit = create_img(game->mlx, "./sprites/BrickHouse.png");
 	game->img.collectable = create_img(game->mlx, "./sprites/collectable.png");
@@ -81,7 +81,7 @@ void	draw_special_tile(t_game *game)
 				mlx_image_to_window(game->mlx, game->img.collectable,
 					y * TILE, x * TILE);
 			else if (game->map.map[x][y] == 'P')
-				mlx_image_to_window(game->mlx, game->img.personage,
+				mlx_image_to_window(game->mlx, game->img.personage_r,
 					y * TILE, x * TILE);
 			y++;
 		}

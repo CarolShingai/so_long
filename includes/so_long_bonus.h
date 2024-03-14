@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 21:03:54 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/14 19:17:18 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/14 20:03:35 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ typedef struct s_img
 {
 	mlx_image_t	*floor;
 	mlx_image_t	*wall;
-	mlx_image_t	*personage;
+	mlx_image_t	*personage_r;
+	mlx_image_t	*personage_l;
 	mlx_image_t	*exit;
 	mlx_image_t	*collectable;
 	mlx_image_t	*enemy;
@@ -131,6 +132,7 @@ void		draw_text_space(t_game *game);
 
 // create_img_bonus2.c
 void	draw_personage(t_game *game);
+void	draw_personage_dir(t_game *game, t_moviment mov);
 
 // read_map.c
 void		primary_validation(int argc, char *argv);
