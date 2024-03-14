@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 17:51:01 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/11 17:34:13 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/13 20:55:32 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	insert_img(t_game *game)
 	game->img.exit = create_img(game->mlx, "./sprites/BrickHouse.png");
 	game->img.collectable = create_img(game->mlx, "./sprites/collectable.png");
 	game->img.enemy = create_img(game->mlx, "./sprites/mafia_L2.png");
+	game->img.text_space = create_img(game->mlx, "./sprites/text.png");
 	mlx_resize_image(game->img.enemy, TILE, TILE);
 }
 
@@ -93,16 +94,15 @@ void	draw_special_tile(t_game *game)
 	}
 }
 
-void	setting_window(t_game *game)
+void	draw_text_space(t_game *game)
 {
-	game->icon = mlx_load_png("./sprites/reborn_1.png");
-	if (!game->icon)
-		ft_error(TEXTURE_ERROR);
-	mlx_set_setting(MLX_STRETCH_IMAGE, true);
-	game->mlx = mlx_init(TILE * game->map.width, TILE * game->map.height,
-			"so_long", true);
-	mlx_set_icon(game->mlx, game->icon);
-	insert_img(game);
-	draw_map(game);
-	draw_special_tile(game);
+	char	*str;
+
+	str = "Movimentos: ";
+	// mlx_image_to_window(game->mlx, game->img.text_space, TILE, TILE);
+	mlx_delete_image(game->mlx, game->img.text);
+	game->img.text = mlx_put_string(game->mlx, ft_itoa(game->count_mov), 3 * 64, 0);
+	mlx_put_string(game->mlx, str, 64, 0);
+	// mlx_put_string(game->mlx, ft_itoa(game->count_mov), 3 * 64, 0);
+	mlx_image_to_window(game->mlx, game->img.text, TILE, 0);
 }

@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 21:03:54 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/11 19:29:23 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/13 20:42:49 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # define WIDTH 1024
 # define HEIGHT 1024
 # define TILE 64
+# define ENEMY_OBSTACLE "1CE"
 
 # define LESS_ARGS "ERROR! You need to pass the map file as a argument."
 # define MORE_ARGS "ERROR! You had surpassed the number of arguments."
@@ -61,6 +62,8 @@ typedef struct s_img
 	mlx_image_t	*exit;
 	mlx_image_t	*collectable;
 	mlx_image_t	*enemy;
+	mlx_image_t	*text_space;
+	mlx_image_t	*text;
 }	t_img;
 
 typedef struct s_position
@@ -88,7 +91,12 @@ typedef struct s_map
 	t_position	enemy;
 }				t_map;
 
-// t_img
+typedef struct s_enemy
+{
+	t_moviment	direction;
+	int			to_move;
+}	t_enemy;
+
 typedef struct s_game
 {
 	t_map			map;
@@ -98,7 +106,8 @@ typedef struct s_game
 	mlx_texture_t	*icon;
 	int				count_mov;
 	int				player_collectables;
-	double			time;
+	int				count_enemies;
+	t_enemy			enemy;
 }					t_game;
 
 // map_validation.c
@@ -118,7 +127,8 @@ mlx_image_t	*create_img(mlx_t *mlx, char *img_path);
 void		insert_img(t_game *game);
 void		draw_map(t_game *game);
 void		draw_special_tile(t_game *game);
-void		setting_window(t_game *game);
+void		draw_text_space(t_game *game);
+
 
 // read_map.c
 void		primary_validation(int argc, char *argv);
@@ -130,6 +140,7 @@ int			find_height(char **map);
 void		set_game_map(char **map, t_game *game);
 void		set_personage(t_game *game);
 void		set_exit(t_game *game);
+void		set_enemy(t_game *game);
 
 // erroc.c
 int			ft_error(char *msg);
@@ -137,6 +148,7 @@ void		*ft_free_split(char **split);
 
 // init_game.c
 void		init_game(t_game *game);
+void		setting_window(t_game *game);
 
 // moviment.c
 void		key_action(mlx_key_data_t keydata, void *param);
@@ -149,7 +161,7 @@ void		get_collectables(t_game *game, int pers_x, int pers_y);
 
 // enemy_moviment.c
 t_bool	enemy_exist(t_game *game);
-void	enemy_moviment(t_game *game);
+void	e_can_move(t_game *game);
 
 // finish.c
 void		enable_exit(t_game *game);
