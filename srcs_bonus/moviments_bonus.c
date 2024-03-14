@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:50:05 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/14 20:15:37 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/14 20:25:59 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	personage_moviment_vertical(t_game *game, int pers_x,
 	}
 	draw_text_space(game);
 	finish_game(game);
-	ft_printf("Movimentos: %d\n", game->count_mov);
 }
 
 void	personage_moviment_horizontal(t_game *game, int pers_x,
