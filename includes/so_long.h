@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 18:23:19 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/14 19:57:00 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/20 20:00:38 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ typedef struct s_game
 	t_map			map;
 	mlx_t			*mlx;
 	t_img			img;
-	t_bool			exit_state;
+	t_bool			exit_status;
 	mlx_texture_t	*icon;
 	int				count_mov;
 	int				player_collectables;

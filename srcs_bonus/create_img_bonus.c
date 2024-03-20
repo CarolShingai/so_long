@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 17:51:01 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/14 20:40:06 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/20 20:54:54 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ mlx_image_t	*create_img(mlx_t *mlx, char *img_path)
 	return (img);
 }
 
-	// mlx_resize_image(game->img.personage, TILE, TILE);
 void	insert_img(t_game *game)
 {
+	game->img.text = NULL;
 	game->img.floor = create_img(game->mlx, "./sprites/grass_tile.png");
 	game->img.wall = create_img(game->mlx, "./sprites/block_tile.png");
 	game->img.personage_r = create_img(game->mlx, "./sprites/reborn_1.png");
@@ -37,6 +37,7 @@ void	insert_img(t_game *game)
 	game->img.exit = create_img(game->mlx, "./sprites/BrickHouse.png");
 	game->img.collectable = create_img(game->mlx, "./sprites/collectable.png");
 	game->img.enemy = create_img(game->mlx, "./sprites/mafia_L2.png");
+	game->img.death_msg = create_img(game->mlx, "./sprites/death_msg.png");
 	mlx_resize_image(game->img.enemy, TILE, TILE);
 	game->img.scroll = create_img(game->mlx, "./sprites/scroll.png");
 	mlx_resize_image(game->img.scroll, TILE * 1.5, (TILE / 2) + 20);
@@ -97,10 +98,9 @@ void	draw_text_space(t_game *game)
 {
 	char	*src;
 
-	mlx_delete_image(game->mlx, game->img.text);
+	if (game->img.text)
+		mlx_delete_image(game->mlx, game->img.text);
 	src = ft_itoa(game->count_mov);
 	mlx_image_to_window(game->mlx, game->img.scroll, TILE, 0);
 	game->img.text = mlx_put_string(game->mlx, src, 2 * 64 - 12, 14);
-	// mlx_put_string(game->mlx, src, 2 * TILE, 14);
-	// mlx_image_to_window(game->mlx, game->img.text, TILE, 0);
 }

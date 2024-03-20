@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 12:35:22 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/10 22:41:17 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/20 19:19:08 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,24 @@ void	check_map_game(char **map, t_game game)
 	while (map[++idx_str])
 	{
 		if (check_map_chars(map[idx_str]) == FALSE)
-			ft_error("ERROR! a not identify charecter is in the map.");
+			error(W_CHAR, &game);
 	}
 	if (check_shape(map, game.map) == FALSE)
-		ft_error(NOT_SQUARE);
+		error(NOT_SQUARE, &game);
 	else if (check_border(map, game.map) == FALSE)
-		ft_error(BORDER_WRONG);
+		error(BORDER_WRONG, &game);
 	else if (count_itens(game.map.map, 'C') == 0)
-		ft_error(COLLECTABLE);
+		error(COLLECTABLE, &game);
 	else if (count_itens(game.map.map, 'P') < 1)
-		ft_error(PERSONAGE);
+		error(PERSONAGE, &game);
 	else if (count_itens(game.map.map, 'P') > 1)
-		ft_error(EXTRA_PERS);
+		error(EXTRA_PERS, &game);
 	else if (count_itens(game.map.map, 'E') < 1)
-		ft_error(EXIT);
+		error(EXIT, &game);
 	else if (count_itens(game.map.map, 'E') > 1)
-		ft_error(EXTRA_EXIT);
+		error(EXTRA_EXIT, &game);
 	else if (check_flood_fill(game.map) == FALSE)
-		ft_error(PATH_ERROR);
+		error(PATH_ERROR, &game);
 }
 
 t_bool	check_map_chars(char *map)

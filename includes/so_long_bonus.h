@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 21:03:54 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/14 20:03:35 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/20 20:00:47 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@
 # define WIDTH 1024
 # define HEIGHT 1024
 # define TILE 64
-# define ENEMY_OBSTACLE "1CE"
+# define RED  "\x1B[31m"
+
 
 # define LESS_ARGS "ERROR! You need to pass the map file as a argument."
 # define MORE_ARGS "ERROR! You had surpassed the number of arguments."
@@ -47,6 +48,7 @@
 # define EXTRA_PERS "ERROR! There is more than one personage in the map."
 # define EXTRA_EXIT "ERROR! There is more than one exit in the map."
 # define PATH_ERROR "ERROR! It is impossible to get to the exit."
+# define W_CHAR "ERROR! There is a not identify charecter in the map."
 
 typedef enum e_bool
 {
@@ -65,6 +67,7 @@ typedef struct s_img
 	mlx_image_t	*enemy;
 	mlx_image_t	*scroll;
 	mlx_image_t	*text;
+	mlx_image_t	*death_msg;
 }	t_img;
 
 typedef struct s_position
@@ -103,7 +106,8 @@ typedef struct s_game
 	t_map			map;
 	mlx_t			*mlx;
 	t_img			img;
-	t_bool			exit_state;
+	t_bool			exit_status;
+	t_bool			game_status;
 	mlx_texture_t	*icon;
 	int				count_mov;
 	int				player_collectables;
@@ -148,6 +152,7 @@ void		set_enemy(t_game *game);
 
 // erroc.c
 int			ft_error(char *msg);
+int	error(char *msg, t_game *game);
 void		*ft_free_split(char **split);
 
 // init_game.c

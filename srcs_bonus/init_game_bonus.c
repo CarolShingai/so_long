@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 19:03:41 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/14 20:57:39 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/20 20:53:45 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	init_game(t_game *game)
 {
 	game->count_mov = 0;
 	game->player_collectables = 0;
-	game->exit_state = FALSE;
+	game->exit_status = FALSE;
+	game->game_status = TRUE;
 	game->enemy.direction = LEFT;
 	game->enemy.to_move = 3;
 	setting_window(game);
@@ -39,4 +40,5 @@ void	setting_window(t_game *game)
 	draw_text_space(game);
 	draw_special_tile(game);
 	draw_personage(game);
+	mlx_delete_texture(game->icon);
 }

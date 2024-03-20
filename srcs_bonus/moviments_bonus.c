@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:50:05 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/14 20:25:59 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/20 20:28:56 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,27 @@ void	key_action(mlx_key_data_t keydata, void *param)
 	t_game	*game;
 
 	game = (t_game *)param;
-	if ((keydata.key == MLX_KEY_D || keydata.key == MLX_KEY_RIGHT)
-		&& keydata.action == MLX_PRESS)
-		personage_moviment_horizontal(game, game->map.personage.x,
-			game->map.personage.y, RIGHT);
-	else if ((keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_LEFT)
-		&& keydata.action == MLX_PRESS)
-		personage_moviment_horizontal(game, game->map.personage.x,
-			game->map.personage.y, LEFT);
-	else if ((keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_UP)
-		&& keydata.action == MLX_PRESS)
-		personage_moviment_vertical(game, game->map.personage.x,
-			game->map.personage.y, UP);
-	else if ((keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_DOWN)
-		&& keydata.action == MLX_PRESS)
-		personage_moviment_vertical(game, game->map.personage.x,
-			game->map.personage.y, DOWN);
-	else if ((keydata.key == MLX_KEY_ESCAPE) && keydata.action == MLX_PRESS)
-		mlx_close_window(game->mlx);
+	if (game->game_status == TRUE)
+	{
+		if ((keydata.key == MLX_KEY_D || keydata.key == MLX_KEY_RIGHT)
+			&& keydata.action == MLX_PRESS)
+			personage_moviment_horizontal(game, game->map.personage.x,
+				game->map.personage.y, RIGHT);
+		else if ((keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_LEFT)
+			&& keydata.action == MLX_PRESS)
+			personage_moviment_horizontal(game, game->map.personage.x,
+				game->map.personage.y, LEFT);
+		else if ((keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_UP)
+			&& keydata.action == MLX_PRESS)
+			personage_moviment_vertical(game, game->map.personage.x,
+				game->map.personage.y, UP);
+		else if ((keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_DOWN)
+			&& keydata.action == MLX_PRESS)
+			personage_moviment_vertical(game, game->map.personage.x,
+				game->map.personage.y, DOWN);
+		else if ((keydata.key == MLX_KEY_ESCAPE) && keydata.action == MLX_PRESS)
+			mlx_close_window(game->mlx);
+	}
 }
 
 void	personage_moviment_vertical(t_game *game, int pers_x,
@@ -86,7 +89,6 @@ void	personage_moviment_horizontal(t_game *game, int pers_x,
 	}
 	draw_text_space(game);
 	finish_game(game);
-	ft_printf("Movimentos: %d\n", game->count_mov);
 }
 
 void	enemy_shock(t_game *game, int pers_x, int pers_y)
