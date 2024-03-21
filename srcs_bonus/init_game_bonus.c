@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 19:03:41 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/20 20:53:45 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/21 15:23:50 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	init_game(t_game *game)
 
 void	setting_window(t_game *game)
 {
-	game->icon = mlx_load_png("./sprites/reborn_1.png");
+	game->icon = mlx_load_png("./sprites/icon.png");
 	if (!game->icon)
 		ft_error(TEXTURE_ERROR);
 	mlx_set_setting(MLX_STRETCH_IMAGE, true);
