@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 17:51:01 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/21 15:36:18 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:07:24 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ void insert_img(t_game *game)
 	game->img.wall = create_img(game->mlx, "./sprites/block_tile.png");
 	game->img.personage_r1 = create_img(game->mlx, "./sprites/reborn/reborn_R1.png");
 	game->img.personage_r2 = create_img(game->mlx, "./sprites/reborn/reborn_R2.png");
+	game->img.personage_r3 = create_img(game->mlx, "./sprites/reborn/reborn_R3.png");
 	game->img.personage_l1 = create_img(game->mlx, "./sprites/reborn/reborn_L1.png");
 	game->img.personage_l2 = create_img(game->mlx, "./sprites/reborn/reborn_L2.png");
+	game->img.personage_l3 = create_img(game->mlx, "./sprites/reborn/reborn_L3.png");
 	game->img.exit = create_img(game->mlx, "./sprites/BrickHouse.png");
 	game->img.collectable = create_img(game->mlx, "./sprites/collectable.png");
 	game->img.enemy = create_img(game->mlx, "./sprites/mafia_L2.png");

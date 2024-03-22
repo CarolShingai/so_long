@@ -6,7 +6,7 @@
 #    By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 18:55:05 by cshingai          #+#    #+#              #
-#    Updated: 2024/03/21 16:40:11 by cshingai         ###   ########.fr        #
+#    Updated: 2024/03/21 18:52:35 by cshingai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ SRCS_BONUS:= ${addprefix srcs_bonus/, \
 			read_map_bonus.c \
 			set_game_map_bonus.c \
 			finish_bonus.c \
-			enemy_moviment_bonus.c \
+			animate_img.c \
 		}
 
 OBJ:= $(SRCS:srcs/%.c=obj/%.o)
@@ -58,11 +58,11 @@ bonus : ${NAME_BONUS}
 
 $(NAME): libft libmlx ft_pritf ${OBJ}
 		@cc $(FLAGS) $(OBJ) $(LIBS) $(HEADERS) -o $(NAME)
-		@printf "Compiling ${NAME}\n"
+		@printf "Compiled ${NAME}\n"
 
 $(NAME_BONUS): libft libmlx ft_pritf ${OBJ_BONUS}
 		@cc $(FLAGS) $(OBJ_BONUS) $(LIBS) $(HEADERS) -o $(NAME_BONUS)
-		@printf "Compiling ${NAME_BONUS}\n"
+		@printf "Compiled ${NAME_BONUS}\n"
 
 libmlx:
 		@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
@@ -76,12 +76,12 @@ ft_pritf:
 obj/%.o: srcs/%.c ./includes/so_long.h
 		@mkdir -p obj
 		@cc $(FLAGS) -c $(HEADERS) $< -o $@
-		@printf "Compiling: $<\n"
+		@printf "Compiled: $<\n"
 
 obj_bonus/%.o: srcs_bonus/%.c ./includes/so_long_bonus.h
 		@mkdir -p obj_bonus
 		@cc $(FLAGS) -c $(HEADERS) $< -o $@
-		@printf "Compiling: $<\n"
+		@printf "Compiled: $<\n"
 
 clean:
 		@echo "Removing objects..."
@@ -89,6 +89,7 @@ clean:
 		@rm -rf $(LIBMLX)/build
 		@make -C $(LIBFT) clean
 		@make -C $(FT_PRINTF) clean
+		@echo "Everthing was removed"
 
 fclean: clean
 		@echo "Removing executables..."
@@ -96,6 +97,7 @@ fclean: clean
 		@echo "Removing libft.a..."
 		@make -C $(LIBFT) fclean
 		@make -C $(FT_PRINTF) fclean
+		@echo "Everthing was removed"
 
 re: fclean all
 

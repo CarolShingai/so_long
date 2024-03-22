@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 19:03:41 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/21 15:23:50 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:26:43 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ void	init_game(t_game *game)
 	game->player_collectables = 0;
 	game->exit_status = FALSE;
 	game->game_status = TRUE;
-	game->enemy.direction = LEFT;
-	game->enemy.to_move = 3;
 	setting_window(game);
 	mlx_key_hook(game->mlx, &key_action, game);
+	mlx_loop_hook(game->mlx, &count_loop, game);
 	mlx_loop(game->mlx);
 	mlx_terminate(game->mlx);
 }
@@ -40,5 +39,6 @@ void	setting_window(t_game *game)
 	draw_text_space(game);
 	draw_special_tile(game);
 	draw_personage(game);
+	draw_personage2(game);
 	mlx_delete_texture(game->icon);
 }

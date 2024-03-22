@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:50:05 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/21 16:42:00 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/21 18:27:11 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void personage_moviment_horizontal(t_game *game, int pers_x,
 
 	temp_x = pers_x;
 	temp_y = pers_y;
+	game->mov = mov;
 	draw_personage_dir(game, mov);
 	if ((game->map.map[pers_x][pers_y + mov] != '1'))
 	{
