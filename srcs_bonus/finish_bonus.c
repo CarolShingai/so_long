@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 19:32:12 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/21 21:33:36 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/21 21:36:25 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,16 @@ void enable_exit(t_game *game)
 
 void finish_game(t_game *game)
 {
-		game->game_status = FALSE;
 	if (((game->map.personage.x == game->map.exit.x) && (game->map.personage.y == game->map.exit.y) && game->exit_status == TRUE))
 	{
+		game->game_status = FALSE;
 		mlx_image_to_window(game->mlx, game->img.win_msg,
 							(TILE * game->map.width) / 2, (TILE * game->map.height) / 3);
 		ft_printf("You win!\n");
 	}
 	else if (game->map.map[game->map.personage.x][game->map.personage.y] == 'V')
 	{
+		game->game_status = FALSE;
 		mlx_image_to_window(game->mlx, game->img.death_msg,
 							(TILE * game->map.width) / 2, (TILE * game->map.height) / 3);
 	}
