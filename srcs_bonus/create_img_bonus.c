@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/18 17:51:01 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/21 18:07:24 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/21 21:35:28 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void insert_img(t_game *game)
 	game->img.collectable = create_img(game->mlx, "./sprites/collectable.png");
 	game->img.enemy = create_img(game->mlx, "./sprites/mafia_L2.png");
 	game->img.death_msg = create_img(game->mlx, "./sprites/death_msg.png");
+	game->img.win_msg = create_img(game->mlx, "./sprites/win_msg.png");
 	mlx_resize_image(game->img.enemy, TILE, TILE);
 	game->img.scroll = create_img(game->mlx, "./sprites/scroll.png");
 	mlx_resize_image(game->img.scroll, TILE * 1.5, (TILE / 2) + 20);

@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 21:03:54 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/21 18:51:04 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/21 21:34:55 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef struct s_img
 	mlx_image_t	*scroll;
 	mlx_image_t	*text;
 	mlx_image_t	*death_msg;
+	mlx_image_t	*win_msg;
 }	t_img;
 
 typedef struct s_position
