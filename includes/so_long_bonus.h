@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 21:03:54 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/21 21:34:55 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/22 21:00:04 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,9 @@ typedef struct s_img
 	mlx_image_t	*exit;
 	mlx_image_t	*collectable;
 	mlx_image_t	*enemy;
+	mlx_image_t	*enemy2;
+	mlx_image_t	*enemy3;
+	mlx_image_t	*enemy4;
 	mlx_image_t	*scroll;
 	mlx_image_t	*text;
 	mlx_image_t	*death_msg;
@@ -143,6 +146,7 @@ void		draw_text_space(t_game *game);
 // create_img_bonus2.c
 void		draw_personage(t_game *game);
 void		draw_personage2(t_game *game);
+void		draw_enemy(t_game *game);
 void		draw_personage_dir(t_game *game, t_moviment mov);
 
 // read_map.c
@@ -186,6 +190,12 @@ void		animate_player_right(t_game *game, int time);
 void		animate_player_left(t_game *game, int time);
 void		disable_left(t_game *game);
 void		disable_right(t_game *game);
+
+// animate_enemy.c
+void	count_loop_enemy(void *param);
+void	animate_enemy(t_game *game, int time);
+void	animate_enemy2(t_game *game);
+
 
 // finish.c
 void		enable_exit(t_game *game);

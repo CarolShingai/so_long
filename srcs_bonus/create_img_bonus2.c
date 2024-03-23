@@ -6,16 +6,16 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 19:13:54 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/21 18:30:34 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/22 19:42:48 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_bonus.h"
 
-void draw_personage(t_game *game)
+void	draw_personage(t_game *game)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = -1;
 	while (game->map.map[++x])
@@ -60,6 +60,35 @@ void	draw_personage2(t_game *game)
 				mlx_image_to_window(game->mlx, game->img.personage_l3,
 									y * TILE, x * TILE);
 				game->img.personage_l3->enabled = false;
+			}
+		}
+	}
+}
+
+void	draw_enemy(t_game *game)
+{
+	int	x;
+	int	y;
+
+	x = -1;
+	while (game->map.map[++x])
+	{
+		y = -1;
+		while (game->map.map[x][++y])
+		{
+			if (game->map.map[x][y] == 'V')
+			{
+				mlx_image_to_window(game->mlx, game->img.enemy,
+									y * TILE, x * TILE);
+				mlx_image_to_window(game->mlx, game->img.enemy2,
+									y * TILE, x * TILE);
+				game->img.enemy2->enabled = false;
+				mlx_image_to_window(game->mlx, game->img.enemy3,
+									y * TILE, x * TILE);
+				game->img.enemy3->enabled = false;
+				mlx_image_to_window(game->mlx, game->img.enemy4,
+									y * TILE, x * TILE);
+				game->img.enemy4->enabled = false;
 			}
 		}
 	}

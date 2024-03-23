@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 14:49:49 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/21 18:48:39 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/22 21:19:31 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	animate_player_right(t_game *game, int time)
 		game->img.personage_r3->enabled = 0;
 	}
 }
+
 void	animate_player_left(t_game *game, int time)
 {
 	if (time % 9 == 0)

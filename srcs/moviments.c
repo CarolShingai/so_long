@@ -6,38 +6,42 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:50:05 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/21 15:27:03 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/22 19:37:35 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void key_action(mlx_key_data_t keydata, void *param)
+void	key_action(mlx_key_data_t keydata, void *param)
 {
-	t_game *game;
+	t_game	*game;
 
 	game = (t_game *)param;
-	if ((keydata.key == MLX_KEY_D || keydata.key == MLX_KEY_RIGHT) && keydata.action == MLX_PRESS)
+	if ((keydata.key == MLX_KEY_D || keydata.key == MLX_KEY_RIGHT)
+		&& keydata.action == MLX_PRESS)
 		personage_moviment_horizontal(game, game->map.personage.x,
-									  game->map.personage.y, RIGHT);
-	else if ((keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_LEFT) && keydata.action == MLX_PRESS)
+			game->map.personage.y, RIGHT);
+	else if ((keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_LEFT)
+		&& keydata.action == MLX_PRESS)
 		personage_moviment_horizontal(game, game->map.personage.x,
-									  game->map.personage.y, LEFT);
-	else if ((keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_UP) && keydata.action == MLX_PRESS)
+			game->map.personage.y, LEFT);
+	else if ((keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_UP)
+		&& keydata.action == MLX_PRESS)
 		personage_moviment_vertical(game, game->map.personage.x,
-									game->map.personage.y, UP);
-	else if ((keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_DOWN) && keydata.action == MLX_PRESS)
+			game->map.personage.y, UP);
+	else if ((keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_DOWN)
+		&& keydata.action == MLX_PRESS)
 		personage_moviment_vertical(game, game->map.personage.x,
-									game->map.personage.y, DOWN);
+			game->map.personage.y, DOWN);
 	else if ((keydata.key == MLX_KEY_ESCAPE) && keydata.action == MLX_PRESS)
 		mlx_close_window(game->mlx);
 }
 
-void personage_moviment_vertical(t_game *game,
-								 int pers_x, int pers_y, t_moviment mov)
+void	personage_moviment_vertical(t_game *game,
+	int pers_x, int pers_y, t_moviment mov)
 {
-	int temp_x;
-	int temp_y;
+	int	temp_x;
+	int	temp_y;
 
 	temp_x = pers_x;
 	temp_y = pers_y;
@@ -58,11 +62,11 @@ void personage_moviment_vertical(t_game *game,
 	ft_printf("Movimentos: %d\n", game->count_mov);
 }
 
-void personage_moviment_horizontal(t_game *game, int pers_x,
-								   int pers_y, t_moviment mov)
+void	personage_moviment_horizontal(t_game *game, int pers_x,
+								int pers_y, t_moviment mov)
 {
-	int temp_x;
-	int temp_y;
+	int	temp_x;
+	int	temp_y;
 
 	temp_x = pers_x;
 	temp_y = pers_y;
@@ -83,14 +87,16 @@ void personage_moviment_horizontal(t_game *game, int pers_x,
 	ft_printf("Movimentos: %d\n", game->count_mov);
 }
 
-void get_collectables(t_game *game, int pers_x, int pers_y)
+void	get_collectables(t_game *game, int pers_x, int pers_y)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (i < game->img.collectable->count)
 	{
-		if ((((game->img.collectable->instances[i].x + 10) / TILE) == pers_y) && (((game->img.collectable->instances[i].y + 10) / TILE) == pers_x) && (game->img.collectable->instances[i].enabled))
+		if ((((game->img.collectable->instances[i].x + 10) / TILE) == pers_y)
+			&& (((game->img.collectable->instances[i].y + 10) / TILE) == pers_x)
+			&& (game->img.collectable->instances[i].enabled))
 		{
 			game->img.collectable->instances[i].enabled = false;
 			game->player_collectables++;
