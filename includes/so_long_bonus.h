@@ -6,12 +6,12 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 21:03:54 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/22 21:00:04 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:10:10 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_BONUS_H
-#define SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10000
@@ -79,8 +79,8 @@ typedef struct s_img
 
 typedef struct s_position
 {
-	int32_t x;
-	int32_t y;
+	int32_t	x;
+	int32_t	y;
 }	t_position;
 
 typedef enum e_moviment
@@ -110,44 +110,43 @@ typedef struct s_enemy
 
 typedef struct s_game
 {
-	t_map		map;
-	mlx_t		*mlx;
-	t_img		img;
-	t_bool		exit_status;
-	t_bool		game_status;
+	t_map			map;
+	mlx_t			*mlx;
+	t_img			img;
+	t_bool			exit_status;
+	t_bool			game_status;
 	mlx_texture_t	*icon;
 	t_moviment		mov;
-	int			count_mov;
-	int			player_collectables;
-	int			count_enemies;
-	int			x_target;
-	int			y_target;
+	int				count_mov;
+	int				player_collectables;
+	int				count_enemies;
 }	t_game;
 
 // map_validation.c
-t_bool	buffer_noempty_line(char *temp_buffer, int char_read);
-t_bool	check_map_chars(char *map);
-t_bool	check_shape(char **map, t_map game_map);
-void	check_map_game(char **map, t_game game_map);
-t_bool	check_border(char **map, t_map game_map);
+t_bool		buffer_noempty_line(char *temp_buffer, int char_read);
+t_bool		check_map_chars(char *map);
+t_bool		check_shape(char **map, t_map game_map);
+void		check_map_game(char **map, t_game game_map);
+t_bool		check_border(char **map, t_map game_map);
 
 // map_validation2.c
-int		count_itens(char **map, char item);
-t_bool	check_flood_fill(t_map game_map);
-void	fload_fill(char **map, int x, int y);
+int			count_itens(char **map, char item);
+t_bool		check_flood_fill(t_map game_map);
+void		fload_fill(char **map, int x, int y);
 
 // create_img.c
 mlx_image_t	*create_img(mlx_t *mlx, char *img_path);
 void		insert_img(t_game *game);
+void		insert_img2(t_game *game);
 void		draw_map(t_game *game);
 void		draw_special_tile(t_game *game);
-void		draw_text_space(t_game *game);
 
 // create_img_bonus2.c
 void		draw_personage(t_game *game);
 void		draw_personage2(t_game *game);
 void		draw_enemy(t_game *game);
 void		draw_personage_dir(t_game *game, t_moviment mov);
+void		draw_text_space(t_game *game);
 
 // read_map.c
 void		primary_validation(int argc, char *argv);
@@ -173,9 +172,9 @@ void		setting_window(t_game *game);
 // moviment.c
 void		key_action(mlx_key_data_t keydata, void *param);
 void		personage_moviment_vertical(t_game *game, int pers_x,
-								int pers_y, t_moviment mov);
+				int pers_y, t_moviment mov);
 void		personage_moviment_horizontal(t_game *game, int pers_x,
-								int pers_y, t_moviment mov);
+				int pers_y, t_moviment mov);
 void		enemy_shock(t_game *game, int pers_x, int pers_y);
 void		get_collectables(t_game *game, int pers_x, int pers_y);
 
@@ -192,10 +191,9 @@ void		disable_left(t_game *game);
 void		disable_right(t_game *game);
 
 // animate_enemy.c
-void	count_loop_enemy(void *param);
-void	animate_enemy(t_game *game, int time);
-void	animate_enemy2(t_game *game);
-
+void		count_loop_enemy(void *param);
+void		animate_enemy(t_game *game, int time);
+void		animate_enemy2(t_game *game);
 
 // finish.c
 void		enable_exit(t_game *game);

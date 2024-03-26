@@ -6,12 +6,12 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 18:23:19 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/22 19:33:01 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:07:36 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
-#define SO_LONG_H
+# define SO_LONG_H
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10000
@@ -149,9 +149,9 @@ void		init_game(t_game *game);
 // moviment.c
 void		key_action(mlx_key_data_t keydata, void *param);
 void		personage_moviment_vertical(t_game *game, int pers_x,
-								 int pers_y, t_moviment mov);
+				int pers_y, t_moviment mov);
 void		personage_moviment_horizontal(t_game *game, int pers_x,
-								   int pers_y, t_moviment mov);
+				int pers_y, t_moviment mov);
 void		get_collectables(t_game *game, int pers_x, int pers_y);
 
 // finish.c

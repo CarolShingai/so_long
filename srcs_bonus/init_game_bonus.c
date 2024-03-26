@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 19:03:41 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/22 19:43:42 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/26 16:05:09 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	setting_window(t_game *game)
 			"so_long", true);
 	mlx_set_icon(game->mlx, game->icon);
 	insert_img(game);
+	insert_img2(game);
 	draw_map(game);
 	draw_text_space(game);
 	draw_special_tile(game);
