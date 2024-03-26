@@ -6,7 +6,7 @@
 #    By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 18:55:05 by cshingai          #+#    #+#              #
-#    Updated: 2024/03/22 17:50:00 by cshingai         ###   ########.fr        #
+#    Updated: 2024/03/26 17:04:23 by cshingai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ LIBS:= $(LIBMLX)/build/libmlx42.a $(LIBFT)/libft.a $(FT_PRINTF)/libftprintf.a -l
 SRCS:= ${addprefix srcs/, \
 			create_img.c \
 			error.c \
+			finish.c \
 			init_game.c \
 			main.c \
 			map_validation2.c \
@@ -30,24 +31,23 @@ SRCS:= ${addprefix srcs/, \
 			moviments.c \
 			read_map.c \
 			set_game_map.c \
-			finish.c \
 		}
 
 SRCS_BONUS:= ${addprefix srcs_bonus/, \
+			animate_enemy.c \
+			animate_img.c \
 			create_img_bonus.c \
 			create_img_bonus2.c \
 			error_bonus.c \
+			finish_bonus.c \
 			init_game_bonus.c \
 			main_bonus.c \
-			map_validation2_bonus.c \
 			map_validation_bonus.c \
+			map_validation2_bonus.c \
 			moviments_bonus.c \
 			moviments_bonus2.c \
 			read_map_bonus.c \
 			set_game_map_bonus.c \
-			finish_bonus.c \
-			animate_img.c \
-			animate_enemy.c \
 		}
 
 OBJ:= $(SRCS:srcs/%.c=obj/%.o)
@@ -75,31 +75,33 @@ ft_pritf:
 		@make -C $(FT_PRINTF) all
 
 obj/%.o: srcs/%.c ./includes/so_long.h
-		@mkdir -p obj
+		$(shell if [ ! -d obj ]; then mkdir -p obj; fi)
 		@cc $(FLAGS) -c $(HEADERS) $< -o $@
+		@ar rcs ${NAME} $@
 		@printf "Compiled: $<\n"
 
 obj_bonus/%.o: srcs_bonus/%.c ./includes/so_long_bonus.h
-		@mkdir -p obj_bonus
+		$(shell if [ ! -d obj_bonus ]; then mkdir -p obj_bonus; fi)
 		@cc $(FLAGS) -c $(HEADERS) $< -o $@
+		@ar rcs ${NAME_BONUS} $@
 		@printf "Compiled: $<\n"
 
 clean:
 		@echo "Removing objects..."
 		@rm -rf $(OBJ) $(OBJ_BONUS)
+		@make clean -C $(LIBFT)
+		@make clean -C $(FT_PRINTF)
 		@rm -rf $(LIBMLX)/build
-		@make -C $(LIBFT) clean
-		@make -C $(FT_PRINTF) clean
 		@echo "Everthing was removed"
 
 fclean: clean
 		@echo "Removing executables..."
 		@rm -rf $(NAME) $(NAME_BONUS)
 		@echo "Removing libft.a..."
-		@make -C $(LIBFT) fclean
-		@make -C $(FT_PRINTF) fclean
+		@make fclean -C $(LIBFT)
+		@make fclean -C $(FT_PRINTF)
 		@echo "Everthing was removed"
 
 re: fclean all
 
-.PHONY: all, libmlx, libft, ft_pritf, clean, fclean, bonus, re
+.PHONY: all, libmlx, clean, fclean, bonus, re
