@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 21:03:54 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/26 20:38:07 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/27 15:47:09 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,12 +102,6 @@ typedef struct s_map
 	t_position	enemy;
 }	t_map;
 
-typedef struct s_enemy
-{
-	t_moviment	direction;
-	int			to_move;
-}	t_enemy;
-
 typedef struct s_game
 {
 	t_map			map;
@@ -118,7 +112,7 @@ typedef struct s_game
 	t_bool			walking_status;
 	mlx_texture_t	*icon;
 	t_moviment		mov;
-	t_enemy			enemy;
+
 	int				count_mov;
 	int				player_collectables;
 	int				count_enemies;

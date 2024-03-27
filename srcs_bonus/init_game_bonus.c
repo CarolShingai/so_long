@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 19:03:41 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/26 20:13:58 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/27 15:47:40 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	init_game(t_game *game)
 	game->exit_status = FALSE;
 	game->game_status = TRUE;
 	game->mov = RIGHT;
-	game->enemy.direction = RIGHT;
 	setting_window(game);
 	mlx_key_hook(game->mlx, &key_action, game);
 	mlx_loop_hook(game->mlx, &count_loop, game);

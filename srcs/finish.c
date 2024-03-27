@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 19:32:12 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/20 20:00:38 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/27 16:17:36 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ void	finish_game(t_game *game)
 	{
 		mlx_close_window(game->mlx);
 		ft_free_split(game->map.map);
+		ft_printf("You Win!!!.\n");
 	}
 }

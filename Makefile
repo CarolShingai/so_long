@@ -6,7 +6,7 @@
 #    By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 18:55:05 by cshingai          #+#    #+#              #
-#    Updated: 2024/03/26 18:10:51 by cshingai         ###   ########.fr        #
+#    Updated: 2024/03/27 15:49:23 by cshingai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,6 @@ SRCS_BONUS:= ${addprefix srcs_bonus/, \
 			main_bonus.c \
 			map_validation_bonus.c \
 			map_validation2_bonus.c \
-			move_enemy.c \
 			moviments_bonus.c \
 			moviments_bonus2.c \
 			read_map_bonus.c \
