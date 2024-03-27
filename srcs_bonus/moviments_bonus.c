@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:50:05 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/22 21:09:29 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/26 20:27:44 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	key_action(mlx_key_data_t keydata, void *param)
 	t_game	*game;
 
 	game = (t_game *)param;
+	game->walking_status = TRUE;
 	if (game->game_status == TRUE)
 	{
 		if ((keydata.key == MLX_KEY_D || keydata.key == MLX_KEY_RIGHT)
@@ -121,4 +122,7 @@ void	get_collectables(t_game *game, int pers_x, int pers_y)
 		}
 		i++;
 	}
+	int x;
+	x = (game->img.collectable->instances[i].x + 10) / TILE;
+	ft_printf("%d\n", x);
 }

@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 17:39:29 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/22 21:29:08 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/26 21:23:02 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	count_loop_enemy(void *param)
 	}
 	if (count >= 4)
 		count = 0;
+	// move_enemy(game);
+	// enemy_map_position(game);
 	animate_enemy(game, count);
 }
 

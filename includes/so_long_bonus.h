@@ -6,7 +6,7 @@
 /*   By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/10 21:03:54 by cshingai          #+#    #+#             */
-/*   Updated: 2024/03/26 16:10:10 by cshingai         ###   ########.fr       */
+/*   Updated: 2024/03/26 20:38:07 by cshingai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,10 @@ typedef struct s_game
 	t_img			img;
 	t_bool			exit_status;
 	t_bool			game_status;
+	t_bool			walking_status;
 	mlx_texture_t	*icon;
 	t_moviment		mov;
+	t_enemy			enemy;
 	int				count_mov;
 	int				player_collectables;
 	int				count_enemies;
@@ -194,6 +196,14 @@ void		disable_right(t_game *game);
 void		count_loop_enemy(void *param);
 void		animate_enemy(t_game *game, int time);
 void		animate_enemy2(t_game *game);
+
+// move_enemy.c
+void		move_enemy(t_game *game);
+void		move_enemy_right(t_game *game, int i);
+void		move_enemy_left(t_game *game, int i);
+t_bool		valid_position_enemy_left(t_game *game, int x, int y);
+t_bool		valid_position_enemy_right(t_game *game, int x, int y);
+void		enemy_map_position(t_game *game);
 
 // finish.c
 void		enable_exit(t_game *game);
