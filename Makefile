@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: cshingai <cshingai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/19 18:55:05 by cshingai          #+#    #+#              #
-#    Updated: 2024/03/27 15:49:23 by cshingai         ###   ########.fr        #
+#    Updated: 2025/08/05 17:47:50 by cshingai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,7 +88,7 @@ obj_bonus/%.o: srcs_bonus/%.c ./includes/so_long_bonus.h
 
 clean:
 		@echo "Removing objects..."
-		@rm -rf $(OBJ) $(OBJ_BONUS)
+		@rm -rf ./obj ./obj_bonus
 		@make clean -C $(LIBFT)
 		@make clean -C $(FT_PRINTF)
 		@rm -rf $(LIBMLX)/build
